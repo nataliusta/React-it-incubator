@@ -3,21 +3,23 @@
     grid-template-columns: 160px 1fr;
     grid-template-rows: 80px 1fr;
     gap: 10px;
+    margin: 0 auto;
     width: 1220px;
 }
 
 .header {
-    grid-column: 1/3;
+    grid-column: 1/-1;
     padding: 15px 15px;
 }
 
 .header img {
-    width: 120px;
+    width: 130px;
+    height: 70px;
 }
 
 .navigation {
     grid-column: 1/2;
-    padding: 10px 12px;
+    padding: 10px 30px;
     background-color: black;
 }
 
@@ -36,3 +38,16 @@
     background-size: cover;
 }
 
+footer {
+    width: 1220px;
+    padding: 20px 60px;
+    background-color: pink;
+}
+
+footer ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+}
