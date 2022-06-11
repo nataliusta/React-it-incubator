@@ -1,0 +1,14 @@
+footer {
+    grid-row: 3/4;
+    width: 1220px;
+    padding: 20px 60px;
+    background-color: pink;
+}
+
+footer ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+}

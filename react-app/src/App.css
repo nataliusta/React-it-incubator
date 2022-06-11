@@ -1,53 +1,8 @@
 .app-wrapper {
     display: grid;
     grid-template-columns: 160px 1fr;
-    grid-template-rows: 80px 1fr;
+    grid-template-rows: 80px 1fr 80px;
     gap: 10px;
     margin: 0 auto;
     width: 1220px;
-}
-
-.header {
-    grid-column: 1/-1;
-    padding: 15px 15px;
-}
-
-.header img {
-    width: 130px;
-    height: 70px;
-}
-
-.navigation {
-    grid-column: 1/2;
-    padding: 10px 30px;
-    background-color: black;
-}
-
-.navigation ul {
-    margin: 0;
-    padding: 0;
-}
-
-.navigation ul li {
-    color: white;
-    list-style-type: none;
-    text-transform: uppercase;
-}
-
-.content img {
-    background-size: cover;
-}
-
-footer {
-    width: 1220px;
-    padding: 20px 60px;
-    background-color: pink;
-}
-
-footer ul {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    padding: 0;
-    list-style-type: none;
 }

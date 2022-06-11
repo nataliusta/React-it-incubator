@@ -1,0 +1,16 @@
+.navigation {
+    grid-column: 1/2;
+    padding: 10px 30px;
+    background-color: black;
+}
+
+.navigation ul {
+    margin: 0;
+    padding: 0;
+}
+
+.navigation ul li {
+    color: white;
+    list-style-type: none;
+    text-transform: uppercase;
+}
