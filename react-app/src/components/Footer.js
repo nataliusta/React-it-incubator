@@ -5,10 +5,10 @@ function Footer() {
     return (
        <footer classname='footer'>
            <div>
-               <ul>
-                   <li>Logo</li>
-                   <li>Phone</li>
-                   <li>Copyright</li>
+               <ul className='footer-menu'>
+                   <li className='item'>Logo</li>
+                   <li className='item'>Phone</li>
+                   <li className='item'>Copyright</li>
                </ul>
            </div>
        </footer> 

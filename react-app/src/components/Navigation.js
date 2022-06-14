@@ -1,15 +1,15 @@
 import React from "react";
-import './Navigation.css';
+import classes from './Navigation.module.css';
 
 function Navigation() {
     return (
-        <nav className='navigation'>
-        <ul>
-          <li>About us</li>
-          <li>Catalog</li>
-          <li>News</li>
-          <li>Contact us</li>
-          <li>Gallery</li>
+        <nav className={classes.navigation}>
+          <ul className='menu'>
+            <li className={classes.item}>About us</li>
+            <li className={classes.item}>Catalog</li>
+            <li className={classes.item}>News</li>
+            <li className={classes.item}>Contact us</li>
+            <li className={classes.item}>Gallery</li>
         </ul>
       </nav>
     )
