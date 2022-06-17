@@ -5,10 +5,14 @@ footer {
     background-color: pink;
 }
 
-footer ul {
+.menu {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
     padding: 0;
+}
+
+.item {
+    color: black;
     list-style-type: none;
 }

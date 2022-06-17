@@ -14,3 +14,7 @@
     list-style-type: none;
     text-transform: uppercase;
 }
+
+.item.active {
+    color: pink;
+}
