@@ -1,8 +1,8 @@
 footer {
-    grid-row: 3/4;
-    width: 1220px;
-    padding: 20px 60px;
-    background-color: pink;
+    grid-column: 1/-1;
+    grid-row: 4/5;
+    padding: 10px 30px;
+    background-color: black;
 }
 
 .menu {
@@ -13,6 +13,6 @@ footer {
 }
 
 .item {
-    color: black;
+    color: white;
     list-style-type: none;
 }

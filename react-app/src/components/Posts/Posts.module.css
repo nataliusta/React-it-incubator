@@ -1,0 +1,13 @@
+.posts {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    grid-column: 1/-1;
+    background-color: pink;
+}
+
+.quote {
+    margin: 0;
+    padding: 0;
+    color: black;
+}
