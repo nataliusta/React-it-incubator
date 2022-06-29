@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import classes from './Navigation.module.css';
 
 function Navigation() {
@@ -6,19 +7,19 @@ function Navigation() {
         <nav className={classes.navigation}>
           <ul className={classes.menu}>
             <li className={`${classes.item} ${classes.active}`}>
-              <a href='/mainpage'>Home</a>
+              <NavLink to='/mainpage'>Home</NavLink>
             </li>
             <li className={classes.item}>
-              <a href='/forum'>Forum</a>
+              <NavLink to='/forum'>Forum</NavLink>
             </li>
             <li className={classes.item}>
-              <a href='/news'>News</a>
+              <NavLink to='/news'>News</NavLink>
             </li>
             <li className={classes.item}>
-              <a href='/contacts'>Contacts</a>
+              <NavLink to='/contacts'>Contacts</NavLink>
             </li>
             <li className={classes.item}>
-              <a href='/gallery'>Gallery</a>
+              <NavLink to='/gallery'>Gallery</NavLink>
             </li>
         </ul>
       </nav>
