@@ -9,12 +9,13 @@
     padding: 0;
 }
 
-.item {
+.item a {
     color: white;
     list-style-type: none;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
-.item.active {
+.item a.active {
     color: pink;
 }
