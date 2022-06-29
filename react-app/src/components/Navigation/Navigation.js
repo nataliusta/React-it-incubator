@@ -5,11 +5,21 @@ function Navigation() {
     return (
         <nav className={classes.navigation}>
           <ul className={classes.menu}>
-            <li className={`${classes.item} ${classes.active}`}>Home</li>
-            <li className={classes.item}>Forum</li>
-            <li className={classes.item}>News</li>
-            <li className={classes.item}>Contacts</li>
-            <li className={classes.item}>Gallery</li>
+            <li className={`${classes.item} ${classes.active}`}>
+              <a href='/mainpage'>Home</a>
+            </li>
+            <li className={classes.item}>
+              <a href='/forum'>Forum</a>
+            </li>
+            <li className={classes.item}>
+              <a href='/news'>News</a>
+            </li>
+            <li className={classes.item}>
+              <a href='/contacts'>Contacts</a>
+            </li>
+            <li className={classes.item}>
+              <a href='/gallery'>Gallery</a>
+            </li>
         </ul>
       </nav>
     )
