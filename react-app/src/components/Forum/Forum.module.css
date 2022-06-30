@@ -10,8 +10,6 @@
 .dialogsList {
     padding: 0;
     margin: 0;
-    border-right: 1px solid;
-    border-color: black;
 }
 
 .dialogsList .active {
@@ -21,6 +19,14 @@
 .messagesList {
     padding: 0;
     margin: 0;
+}
+
+.messagesList .item {
+    padding: 15px;
+    width: 170px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 15px;
 }
 
 .messages {

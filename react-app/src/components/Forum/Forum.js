@@ -17,11 +17,11 @@ const Forum = (props) => {
             </div>
             <div className={classes.messages}>
                 <ul className={classes.messagesList}>
-                    <li className={classes.item}>I'm definitely in love with my lipstick!</li>
+                    <li className={classes.item}>I'm definitely in love with my lipstick!!!</li>
                     <li className={classes.item}>Hello,could you advice me a good perfume?</li>
                     <li className={classes.item}>What do you think about Chanel products?</li>
-                    <li className={classes.item}>Hello everyone!</li>
-                    <li className={classes.item}>Not sure I liked Chanel Coco Mademoiselle..</li>
+                    <li className={classes.item}>Hello everyone!!!</li>
+                    <li className={classes.item}>Not sure I liked Chanel Coco Mademoiselle....</li>
                 </ul>
             </div>
             <div></div>
