@@ -1,18 +1,36 @@
 import React from 'react';
 import classes from './Forum.module.css';
+import { NavLink } from 'react-router-dom';
 
 const Forum = (props) => {
     return (
         <div className={classes.forumDialogs}>
             <div className={classes.dialogs}>
                 <ul className={classes.dialogsList}>
-                    <li className={classes.item + ' ' + classes.active}>Samanta</li>
-                    <li className={classes.item}>Alexa</li>
-                    <li className={classes.item}>Olivia</li>
-                    <li className={classes.item}>Chloe</li>
-                    <li className={classes.item}>Emily</li>
-                    <li className={classes.item}>Carla</li>
-                    <li className={classes.item}>Jess</li>
+                    <li className={classes.item + ' ' + classes.active}>
+                        <NavLink to='/forum/samanta'>Samanta</NavLink>
+                    </li>
+                    <li className={classes.item}>
+                        <NavLink to='/forum/alexa'>Alexa</NavLink>
+                    </li>
+                    <li className={classes.item}>
+                        <NavLink to='/forum/olivia'>Olivia</NavLink>
+                    </li>
+                    <li className={classes.item}>
+                        <NavLink to='/forum/chloe'>Chloe</NavLink>
+                    </li>
+                    <li className={classes.item}>
+                        <NavLink to='/forum/emily'>Emily</NavLink>
+                    </li>
+                    <li className={classes.item}>
+                        <NavLink to='/forum/carla'>Carla</NavLink>
+                    </li>
+                    <li className={classes.item}>
+                        <NavLink to='/forum/jess'>Jess</NavLink>
+                    </li>
+                    <li className={classes.item}>
+                        <NavLink to='/forum/sophie'>Sophie</NavLink>
+                    </li>
                 </ul>
             </div>
             <div className={classes.messages}>

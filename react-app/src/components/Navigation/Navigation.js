@@ -18,10 +18,10 @@ function Navigation() {
               <NavLink to='/news' className={activeLink}>News</NavLink>
             </li>
             <li className={classes.item}>
-              <NavLink to='/contacts' className={activeLink}>Contacts</NavLink>
+              <NavLink to='/gallery' className={activeLink}>Gallery</NavLink>
             </li>
             <li className={classes.item}>
-              <NavLink to='/gallery' className={activeLink}>Gallery</NavLink>
+              <NavLink to='/contacts' className={activeLink}>Contacts</NavLink>
             </li>
         </ul>
       </nav>

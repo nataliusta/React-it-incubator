@@ -19,7 +19,7 @@ function App() {
         <div className='app-wrapper-content'>
           <Routes>
             <Route path='/mainpage' element={<MainPage />} />
-            <Route path='/forum' element={<Forum />} />
+            <Route path='/forum/*' element={<Forum />} />
             <Route path='/news' element={<News />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/gallery' element={<Gallery />} />
