@@ -1,4 +1,44 @@
+.caption {
+    font-size: 52px;
+    text-align: center;
+}
+
+.item {
+    display: grid;
+    row-gap: 10px;
+    padding: 10px 120px;
+    list-style: none;
+}
+
 .item img {
+    display: block;
+    object-fit: cover;
+    justify-self: center;
     width: 320px;
     height: 380px;
+} 
+
+.date {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    color: whitesmoke;
+    text-transform: uppercase;
+}
+
+.newsList {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.itemCaption {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.description {
+    margin: 0;
+    padding: 0;
 }
