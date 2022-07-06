@@ -1,6 +1,7 @@
 .caption {
     font-size: 52px;
     text-align: center;
+    text-shadow: 2px 3px 12px grey;
 }
 
 .item {
