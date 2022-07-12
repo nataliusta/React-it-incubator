@@ -1,20 +1,7 @@
 import React from 'react';
 import classes from './Forum.module.css';
-import { NavLink } from 'react-router-dom';
-
-const DialogItem = (props) => {
-    return (
-        <li className={classes.item + ' ' + classes.active}>
-            <NavLink to={'/forum/' + props.id}>{props.name}</NavLink>
-        </li>
-    )
-}
-
-const MessageItem = (props) => {
-    return (
-        <li className={classes.item}>{props.message}</li>
-    )
-}
+import DialogItem from './DialogItem/DialogItem.js';
+import MessageItem from './MessageItem/MessageItem.js';
 
 const Forum = (props) => {
 
@@ -29,8 +16,6 @@ const Forum = (props) => {
         {id: 'sophie', name: 'Sophie'}
     ]
 
-    let dialogsElements = dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
-
     let messagesData = [
         {id: 1, message: 'Definitely in love with my lipstick!!!'},
         {id: 2, message: 'Hello,could you advice me a good perfume?'},
@@ -38,6 +23,8 @@ const Forum = (props) => {
         {id: 4, message: 'Hello everyone!!!'},
         {id: 5, message: 'Not sure I liked Chanel Coco Mademoiselle....'}
     ]
+
+    let dialogsElements = dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
 
     let messagesElements = messagesData.map ( message => <MessageItem message={message.message} /> )
 
