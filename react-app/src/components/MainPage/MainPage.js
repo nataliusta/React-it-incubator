@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './MainPage.css';
 import Posts from './Posts/Posts.js';
 

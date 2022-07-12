@@ -16,7 +16,6 @@ const News = (props) => {
           <h2 className={classes.itemCaption}>
             Highlights 2022 Cannes film festival
           </h2>
-          
           <p className={classes.description}>
             Ambassadors and friends of the House Kristen Stewart, Margaret
             Qualley and Anamaria Vartolomei stepped out on the red carpet of the

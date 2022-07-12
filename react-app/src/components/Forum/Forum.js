@@ -29,6 +29,8 @@ const Forum = (props) => {
         {id: 'sophie', name: 'Sophie'}
     ]
 
+    let dialogsElements = dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
+
     let messagesData = [
         {id: 1, message: 'Definitely in love with my lipstick!!!'},
         {id: 2, message: 'Hello,could you advice me a good perfume?'},
@@ -37,30 +39,20 @@ const Forum = (props) => {
         {id: 5, message: 'Not sure I liked Chanel Coco Mademoiselle....'}
     ]
 
+    let messagesElements = messagesData.map ( message => <MessageItem message={message.message} /> )
+
     return (
         <div className={classes.forumDialogs}>
             <div className={classes.dialogs}>
                 <ul className={classes.dialogsList}>
-                    <DialogItem name={dialogsData[0].name} id={dialogsData[0].id} />
-                    <DialogItem name={dialogsData[1].name} id={dialogsData[1].id} />
-                    <DialogItem name={dialogsData[2].name} id={dialogsData[2].id} />
-                    <DialogItem name={dialogsData[3].name} id={dialogsData[3].id} />
-                    <DialogItem name={dialogsData[4].name} id={dialogsData[4].id} />
-                    <DialogItem name={dialogsData[5].name} id={dialogsData[5].id} />
-                    <DialogItem name={dialogsData[6].name} id={dialogsData[6].id} />
-                    <DialogItem name={dialogsData[7].name} id={dialogsData[7].id} />
+                    {dialogsElements}
                 </ul>
             </div>
             <div className={classes.messages}>
                 <ul className={classes.messagesList}>
-                    <MessageItem message={messagesData[0].message} />
-                    <MessageItem message={messagesData[1].message} />
-                    <MessageItem message={messagesData[2].message} />
-                    <MessageItem message={messagesData[3].message} />
-                    <MessageItem message={messagesData[4].message} />
+                    {messagesElements}
                 </ul>
             </div>
-            <div></div>
         </div>
     )
 }
