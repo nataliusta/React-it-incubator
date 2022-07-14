@@ -21,7 +21,7 @@ function App() {
             <Route path='/mainpage' element={<MainPage />} />
             <Route path='/forum/*' element={<Forum />} />
             <Route path='/news' element={<News />} />
-            <Route path='/contacts' element={<Contacts />} />
+            <Route path='/contacts'element={<Contacts />} />
             <Route path='/gallery' element={<Gallery />} />
           </Routes>
         </div>
