@@ -10,7 +10,8 @@ import News from './components/News/News';
 import Contacts from './components/Contacts/Contacts';
 import Gallery from './components/Gallery/Gallery';
 
-function App() {
+const App = (props) => {
+
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -19,9 +20,9 @@ function App() {
         <div className='app-wrapper-content'>
           <Routes>
             <Route path='/mainpage' element={<MainPage />} />
-            <Route path='/forum/*' element={<Forum />} />
+            <Route path='/forum/*' element={<Forum dialogsData={props.dialogsData} messagesData={props.messagesData}/>} />
             <Route path='/news' element={<News />} />
-            <Route path='/contacts'element={<Contacts />} />
+            <Route path='/contacts' element={<Contacts />} />
             <Route path='/gallery' element={<Gallery />} />
           </Routes>
         </div>
