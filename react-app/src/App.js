@@ -20,7 +20,7 @@ const App = (props) => {
         <div className='app-wrapper-content'>
           <Routes>
             <Route path='/mainpage' element={<MainPage />} />
-            <Route path='/forum/*' element={<Forum dialogsData={props.state.dialogsData} messagesData={props.state.messagesData}/>} />
+            <Route path='/forum/*' element={<Forum dialogsData state={props.state.forumPage} messagesData={props.state.forumPage} />} />
             <Route path='/news' element={<News />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/gallery' element={<Gallery />} />
