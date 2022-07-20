@@ -52,3 +52,44 @@
     margin-bottom: 10px;
     list-style: none;
 }
+
+.messagesField {
+    display: grid;
+    column-gap: 10px;
+    grid-column: 2/3;
+    padding: 10px;
+}
+
+.text {
+    resize: none;
+}
+
+.buttonMessages {
+    display: inline-block;
+    align-self: end;
+    box-sizing: border-box;
+    font-family: inherit;
+    width: 110px;
+    padding: 10px;
+    grid-column: 2/3;
+    border-radius: 8px;
+    background-color: white;
+    text-align: center;
+    border: 1px solid black;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.buttonMessages:hover {
+    opacity: 0.9;
+}
+
+.buttonMessages:focus {
+    outline: 1px solid pink;
+}
+
+.buttonMessages:active {
+    color: pink;
+    opacity: 0.9;
+}

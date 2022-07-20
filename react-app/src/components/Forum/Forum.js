@@ -8,6 +8,13 @@ const Forum = (props) => {
     let dialogsElements = props.state.dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
     let messagesElements = props.state.messagesData.map ( message => <MessageItem message={message.message} /> )
 
+    let newCommentElement = React.createRef();
+
+    let addComment = () => {
+        let text = newCommentElement.current.value;
+        alert(text);
+    }
+
     return (
         <div className={classes.forumDialogs}>
             <div className={classes.dialogs}>
@@ -19,6 +26,10 @@ const Forum = (props) => {
                 <ul className={classes.messagesList}>
                     {messagesElements}
                 </ul>
+            </div>
+            <div className={classes.messagesField}>
+                <textarea className={classes.text} ref={newCommentElement}></textarea>
+                <button className={classes.buttonMessages} onClick={ addComment }>Send</button>
             </div>
         </div>
     )
