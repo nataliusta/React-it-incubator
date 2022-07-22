@@ -19,5 +19,14 @@ let state = {
           ]
     }
 }
+
+export let addComment = (messageElement) => {
+  let newMessage = {
+      id: 6,
+      message: messageElement
+  };
+
+    state.forumPage.messagesData.push(newMessage);
+}
   
   export default state;
