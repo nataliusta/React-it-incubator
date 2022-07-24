@@ -31,6 +31,7 @@ export let addComment = () => {
       message: state.forumPage.newTextComment
   };
     state.forumPage.messagesData.push(newMessage);
+    state.forumPage.newTextComment = '';
     rerenderEntireTree(state);
 }
 

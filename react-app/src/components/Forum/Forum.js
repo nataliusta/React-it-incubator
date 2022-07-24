@@ -12,7 +12,6 @@ const Forum = (props) => {
 
     let addComment = () => {
         props.addComment();
-        props.updateNewTextComment('');
     }
 
     let onCommentChange = () => {
