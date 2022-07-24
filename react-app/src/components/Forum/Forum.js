@@ -13,6 +13,7 @@ const Forum = (props) => {
     let addComment = () => {
         let text = newCommentElement.current.value;
         props.addComment(text);
+        newCommentElement.current.value = '';
     }
 
     return (

@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from '../render.js';
+
 let state = {
     forumPage: {
         dialogsData: [
@@ -27,6 +29,7 @@ export let addComment = (messageElement) => {
   };
 
     state.forumPage.messagesData.push(newMessage);
+    rerenderEntireTree(state);
 }
   
   export default state;
