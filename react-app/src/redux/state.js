@@ -18,17 +18,24 @@ let state = {
             {id: 3, message: 'What do you think about Chanel products?'},
             {id: 4, message: 'Hello everyone!!!'},
             {id: 5, message: 'Not sure I liked Chanel Coco Mademoiselle....'}
-          ]
+          ],
+        newTextComment: 'Write new comment..'
     }
 }
 
-export let addComment = (messageElement) => {
+window.state = state;
+
+export let addComment = () => {
   let newMessage = {
       id: 6,
-      message: messageElement
+      message: state.forumPage.newTextComment
   };
-
     state.forumPage.messagesData.push(newMessage);
+    rerenderEntireTree(state);
+}
+
+export let updateNewTextComment = (newComment) => {
+    state.forumPage.newTextComment = newComment;
     rerenderEntireTree(state);
 }
   

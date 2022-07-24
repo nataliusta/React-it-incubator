@@ -5,15 +5,19 @@ import MessageItem from './MessageItem/MessageItem.js';
 
 const Forum = (props) => {
 
-    let dialogsElements = props.state.dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
-    let messagesElements = props.state.messagesData.map ( message => <MessageItem message={message.message} /> )
+    let dialogsElements = props.forumPage.dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
+    let messagesElements = props.forumPage.messagesData.map ( message => <MessageItem message={message.message} /> )
 
     let newCommentElement = React.createRef();
 
     let addComment = () => {
+        props.addComment();
+        props.updateNewTextComment('');
+    }
+
+    let onCommentChange = () => {
         let text = newCommentElement.current.value;
-        props.addComment(text);
-        newCommentElement.current.value = '';
+        props.updateNewTextComment(text);
     }
 
     return (
@@ -29,7 +33,7 @@ const Forum = (props) => {
                 </ul>
             </div>
             <div className={classes.messagesField}>
-                <textarea className={classes.text} ref={newCommentElement}></textarea>
+                <textarea onChange={onCommentChange} className={classes.text} ref={newCommentElement} value={props.forumPage.newTextComment} />
                 <button className={classes.buttonMessages} onClick={ addComment }>Send</button>
             </div>
         </div>
