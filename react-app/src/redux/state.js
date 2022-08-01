@@ -23,7 +23,7 @@ let state = {
     }
 }
 
-window.state = state;
+//window.state = state;
 
 export let addComment = () => {
   let newMessage = {
