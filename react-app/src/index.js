@@ -1,5 +1,5 @@
 import reportWebVitals from './reportWebVitals';
-import state from './redux/state.js';
+import state, {subscribe} from './redux/state.js';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -8,7 +8,7 @@ import { addComment, updateNewTextComment } from './redux/state.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-export let rerenderEntireTree = (state) => {
+let rerenderEntireTree = (state) => {
 
     root.render(
         <React.StrictMode>
@@ -18,5 +18,7 @@ export let rerenderEntireTree = (state) => {
 }
 
 rerenderEntireTree(state);
+
+subscribe(rerenderEntireTree);
 
 reportWebVitals();

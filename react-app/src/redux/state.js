@@ -1,4 +1,6 @@
-import { rerenderEntireTree } from '../render.js';
+let rerenderEntireTree = () => {
+  console.log('hello');
+}
 
 let state = {
     forumPage: {
@@ -23,9 +25,9 @@ let state = {
     }
 }
 
-//window.state = state;
+window.state = state;
 
-export let addComment = () => {
+export const addComment = () => {
   let newMessage = {
       id: 6,
       message: state.forumPage.newTextComment
@@ -35,9 +37,13 @@ export let addComment = () => {
     rerenderEntireTree(state);
 }
 
-export let updateNewTextComment = (newComment) => {
+export const updateNewTextComment = (newComment) => {
     state.forumPage.newTextComment = newComment;
     rerenderEntireTree(state);
 }
+
+export const subscribe = (observer) => {
+  rerenderEntireTree = observer;
+}
   
-  export default state;
+export default state;
