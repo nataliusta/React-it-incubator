@@ -1,10 +1,9 @@
 import reportWebVitals from './reportWebVitals';
-import state, {subscribe} from './redux/state.js';
+import store from './redux/state.js';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { addComment, updateNewTextComment } from './redux/state.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -12,13 +11,14 @@ let rerenderEntireTree = (state) => {
 
     root.render(
         <React.StrictMode>
-            <App state={state} addComment={addComment} updateNewTextComment={updateNewTextComment} />
+            <App state={state} addComment={store.addComment.bind(store)} 
+                 updateNewTextComment={store.updateNewTextComment.bind(store)} />
         </React.StrictMode>
   );
 }
 
-rerenderEntireTree(state);
+rerenderEntireTree(store.getState());
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);
 
 reportWebVitals();
