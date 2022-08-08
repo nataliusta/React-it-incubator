@@ -24,7 +24,7 @@ let store = {
     getState() {
       return this._state;
     },
-    rerenderEntireTree() { // method
+    _callSubscriber() { // method
       console.log('hello');
     },
     addComment() {
@@ -34,14 +34,14 @@ let store = {
       };
         this._state.forumPage.messagesData.push(newMessage);
         this._state.forumPage.newTextComment = '';
-        this._rerenderEntireTree(this._state);
+        this._callSubscriber(this._state);
     }, // method
     updateNewTextComment(newComment) {
       this._state.forumPage.newTextComment = newComment;
-      this._rerenderEntireTree(this._state);
+      this._callSubscriber(this._state);
     }, // method
     subscribe(observer) {
-      this._rerenderEntireTree = observer;
+      this._callSubscriber = observer;
     } // method
 }
 //window.store = store;
