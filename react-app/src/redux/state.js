@@ -21,28 +21,29 @@ let store = {
           newTextComment: 'Write new comment..'
       }
     }, // private
-    getState() {
-      return this._state;
-    },
     _callSubscriber() { // method
       console.log('hello');
     },
-    addComment() {
-      let newMessage = {
-          id: 6,
-          message: this._state.forumPage.newTextComment
-      };
-        this._state.forumPage.messagesData.push(newMessage);
-        this._state.forumPage.newTextComment = '';
-        this._callSubscriber(this._state);
-    }, // method
-    updateNewTextComment(newComment) {
-      this._state.forumPage.newTextComment = newComment;
-      this._callSubscriber(this._state);
-    }, // method
+    getState() {
+      return this._state;
+    },
     subscribe(observer) {
       this._callSubscriber = observer;
-    } // method
+    }, // method
+    dispatch(action) { // {type: 'ADD-COMMENT'}
+      if (action.type === 'ADD-COMMENT') {
+          let newMessage = {
+            id: 6,
+            message: this._state.forumPage.newTextComment
+          };
+          this._state.forumPage.messagesData.push(newMessage);
+          this._state.forumPage.newTextComment = '';
+          this._callSubscriber(this._state);
+      } else if (action.type === 'UPDATE-NEW-TEXT-COMMENT') {
+          this._state.forumPage.newTextComment = action.newComment;
+          this._callSubscriber(this._state);
+      }
+    }
 }
 //window.store = store;
 export default store;

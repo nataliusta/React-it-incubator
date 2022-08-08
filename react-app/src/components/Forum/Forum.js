@@ -6,17 +6,17 @@ import MessageItem from './MessageItem/MessageItem.js';
 const Forum = (props) => {
 
     let dialogsElements = props.forumPage.dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
-    let messagesElements = props.forumPage.messagesData.map ( message => <MessageItem message={message.message} /> )
+    let messagesElements = props.forumPage.messagesData.map ( message => <MessageItem message={message.message} /> );
 
     let newCommentElement = React.createRef();
 
     let addComment = () => {
-        props.addComment();
+        props.dispatch( {type: 'ADD-COMMENT' } );
     }
 
     let onCommentChange = () => {
         let text = newCommentElement.current.value;
-        props.updateNewTextComment(text);
+        props.dispatch( {type: 'UPDATE-NEW-TEXT-COMMENT', newComment: text } );
     }
 
     return (

@@ -8,11 +8,9 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 let rerenderEntireTree = (state) => {
-    console.log();
     root.render(
         <React.StrictMode>
-            <App state={state} addComment={store.addComment.bind(store)} 
-                 updateNewTextComment={store.updateNewTextComment.bind(store)} />
+            <App state={state} dispatch={store.dispatch.bind(store)} />
         </React.StrictMode>
   );
 }

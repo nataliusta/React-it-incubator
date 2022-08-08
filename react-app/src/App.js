@@ -22,9 +22,8 @@ const App = (props) => {
             <Route path='/mainpage' element={<MainPage />} />
             <Route path='/forum/*' element={<Forum dialogsData forumPage={props.state.forumPage} 
                                                    messagesData={props.state.forumPage} 
-                                                   addComment={props.addComment} 
-                                                   newTextComment={props.newTextComment}
-                                                   updateNewTextComment={props.updateNewTextComment} />} />
+                                                   dispatch={props.dispatch} 
+                                                   newTextComment={props.newTextComment} />} />
             <Route path='/news' element={<News />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/gallery' element={<Gallery />} />
