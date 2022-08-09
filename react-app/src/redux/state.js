@@ -1,3 +1,6 @@
+const ADD_COMMENT = 'ADD-COMMENT';
+const UPDATE_NEW_TEXT_COMMENT = 'UPDATE-NEW-TEXT-COMMENT';
+
 let store = {
     _state: {
       forumPage: {
@@ -31,7 +34,7 @@ let store = {
       this._callSubscriber = observer;
     }, // method
     dispatch(action) { // {type: 'ADD-COMMENT'}
-      if (action.type === 'ADD-COMMENT') {
+      if (action.type === ADD_COMMENT) {
           let newMessage = {
             id: 6,
             message: this._state.forumPage.newTextComment
@@ -39,11 +42,16 @@ let store = {
           this._state.forumPage.messagesData.push(newMessage);
           this._state.forumPage.newTextComment = '';
           this._callSubscriber(this._state);
-      } else if (action.type === 'UPDATE-NEW-TEXT-COMMENT') {
+      } else if (action.type === UPDATE_NEW_TEXT_COMMENT) {
           this._state.forumPage.newTextComment = action.newComment;
           this._callSubscriber(this._state);
       }
     }
 }
+
+export const addCommentActionCreator = () => ({type: ADD_COMMENT})  // function that returns an object (action) with a type
+export const updateNewTextCommentActionCreator = (text) =>  // function that returns an object (action) with a type 
+    ({type: UPDATE_NEW_TEXT_COMMENT, newComment: text})
+
 //window.store = store;
 export default store;

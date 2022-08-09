@@ -23,7 +23,7 @@ const App = (props) => {
             <Route path='/forum/*' element={<Forum dialogsData forumPage={props.state.forumPage} 
                                                    messagesData={props.state.forumPage} 
                                                    dispatch={props.dispatch} 
-                                                   newTextComment={props.newTextComment} />} />
+                                                    />} />
             <Route path='/news' element={<News />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/gallery' element={<Gallery />} />

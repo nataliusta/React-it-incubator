@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Forum.module.css';
 import DialogItem from './DialogItem/DialogItem.js';
 import MessageItem from './MessageItem/MessageItem.js';
+import { addCommentActionCreator, updateNewTextCommentActionCreator  } from '../../redux/state';
 
 const Forum = (props) => {
 
@@ -11,12 +12,15 @@ const Forum = (props) => {
     let newCommentElement = React.createRef();
 
     let addComment = () => {
-        props.dispatch( {type: 'ADD-COMMENT' } );
+        //props.addComment();
+        props.dispatch(addCommentActionCreator());
     }
 
     let onCommentChange = () => {
         let text = newCommentElement.current.value;
-        props.dispatch( {type: 'UPDATE-NEW-TEXT-COMMENT', newComment: text } );
+        //props.dispatch( {type: 'UPDATE-NEW-TEXT-COMMENT', newComment: text } );
+        let action = updateNewTextCommentActionCreator(text);
+        props.dispatch(action);
     }
 
     return (
