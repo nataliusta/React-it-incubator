@@ -19,11 +19,11 @@ const App = (props) => {
         <Navigation />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path='/mainpage' element={<MainPage />} />
+            <Route path='/mainpage' element={<MainPage commentsData mainPage={props.state.mainPage}
+                                                       dispatch={props.dispatch} store={props.store} />} />
             <Route path='/forum/*' element={<Forum dialogsData forumPage={props.state.forumPage} 
                                                    messagesData={props.state.forumPage} 
-                                                   dispatch={props.dispatch} 
-                                                    />} />
+                                                   dispatch={props.dispatch} store={props.store}/>} />
             <Route path='/news' element={<News />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/gallery' element={<Gallery />} />
