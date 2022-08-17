@@ -5,8 +5,7 @@ import { addCommentCreator, updateNewCommentBodyCreator } from '../../../redux/s
 
 const Comments = (props) => {
 
-  //let newCommentBody = props.newCommentBody; 
-  let newCommentBody = props.commentsData.map ( comment => <CommentItem comment={comment.comment} /> );
+  let newCommentBody = props.newCommentBody; 
 
   let onSendCommentClick = () => {
     props.dispatch(addCommentCreator());
@@ -18,12 +17,16 @@ const Comments = (props) => {
   }
 
     return (
-        <div className={classes.commentsField}>
-            <CommentItem />
-          <textarea className={classes.text} value={newCommentBody} 
-                    onChange={onNewCommentChange}
-                    placeholder='Help us to be better'/>
-          <button className={classes.buttonComments} onClick={onSendCommentClick}>Send</button>
+        <div className={classes.comments}>
+            <div classname={classes.commentsItem}>
+                <CommentItem />
+            </div>
+            <div className={classes.commentsField}>
+                <textarea className={classes.text} value={newCommentBody} 
+                            onChange={onNewCommentChange}
+                            placeholder='Help us to be better'/>
+                <button className={classes.buttonComments} onClick={onSendCommentClick}>Send</button>
+          </div>
         </div>
     )
 }
