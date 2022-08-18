@@ -19,8 +19,7 @@ const App = (props) => {
         <Navigation />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path='/mainpage' element={<MainPage commentsData mainPage={props.state.mainPage}
-                                                       dispatch={props.dispatch} store={props.store} />} />
+            <Route path='/mainpage' element={<MainPage store={props.store} />} />
             <Route path='/forum/*' element={<Forum dialogsData forumPage={props.state.forumPage} 
                                                    messagesData={props.state.forumPage} 
                                                    dispatch={props.dispatch} store={props.store}/>} />

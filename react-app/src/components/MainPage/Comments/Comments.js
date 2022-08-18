@@ -1,10 +1,11 @@
 import React from 'react';
 import classes from './Comments.module.css';
 import CommentItem from './CommentItem/CommentItem.js';
-import { addCommentCreator, updateNewCommentBodyCreator } from '../../../redux/state.js';
+import { addCommentCreator, updateNewCommentBodyCreator } from '../../../redux/main-reducer';
 
 const Comments = (props) => {
 
+  //let commentElements = props.state.map ( comment => <CommentItem comment={comment.comment} /> );
   let newCommentBody = props.newCommentBody; 
 
   let onSendCommentClick = () => {
@@ -15,10 +16,9 @@ const Comments = (props) => {
     let body = event.target.value;
     props.dispatch(updateNewCommentBodyCreator(body));
   }
-
     return (
         <div className={classes.comments}>
-            <div classname={classes.commentsItem}>
+            <div className={classes.commentsItem}>
                 <CommentItem />
             </div>
             <div className={classes.commentsField}>
