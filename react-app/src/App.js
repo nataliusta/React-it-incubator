@@ -11,7 +11,6 @@ import Contacts from './components/Contacts/Contacts';
 import Gallery from './components/Gallery/Gallery';
 
 const App = (props) => {
-
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
