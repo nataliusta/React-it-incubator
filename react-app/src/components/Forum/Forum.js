@@ -6,8 +6,10 @@ import { addMessageActionCreator, updateNewTextMessageActionCreator  } from '../
 
 const Forum = (props) => {
 
-    let dialogsElements = props.forumPage.dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
-    let messagesElements = props.forumPage.messagesData.map ( message => <MessageItem message={message.message} /> );
+    let state = props.store.getState().forumPage;
+
+    let dialogsElements = state.dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
+    let messagesElements = state.messagesData.map ( message => <MessageItem message={message.message} /> );
 
     let newMessageElement = React.createRef();
 
