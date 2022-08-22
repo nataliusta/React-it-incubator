@@ -6,23 +6,24 @@ import { addMessageActionCreator, updateNewTextMessageActionCreator  } from '../
 
 const Forum = (props) => {
 
-    let state = props.store.getState().forumPage;
+    //let state = props.store.getState().forumPage;
 
-    let dialogsElements = state.dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
-    let messagesElements = state.messagesData.map ( message => <MessageItem message={message.message} /> );
+    let dialogsElements = props.dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
+    let messagesElements = props.messagesData.map ( message => <MessageItem message={message.message} /> );
 
     let newMessageElement = React.createRef();
 
-    let addMessage = () => {
-        //props.addmessage();
-        props.dispatch(addMessageActionCreator());
+    let onAddMessage = () => {
+        props.addMessage();
+        //props.dispatch(addMessageActionCreator());
     }
 
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        //props.dispatch( {type: 'UPDATE-NEW-TEXT-MESSAGE', newMessage: text } );
-        let action = updateNewTextMessageActionCreator(text);
-        props.dispatch(action);
+        props.updateNewTextMessage(text);
+        //let action = {type: 'UPDATE-NEW-TEXT-MESSAGE', newMessage: text };
+        //let action = updateNewTextMessageActionCreator(text);
+        //props.dispatch(action);
     }
 
     return (
@@ -39,7 +40,7 @@ const Forum = (props) => {
             </div>
             <div className={classes.messagesField}>
                 <textarea onChange={onMessageChange} className={classes.text} ref={newMessageElement} value={props.forumPage.newTextMessage} />
-                <button className={classes.buttonMessages} onClick={ addMessage }>Send</button>
+                <button className={classes.buttonMessages} onClick={ onAddMessage }>Send</button>
             </div>
         </div>
     )
