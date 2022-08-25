@@ -37,7 +37,7 @@ const Forum = (props) => {
                 </ul>
             </div>
             <div className={classes.messagesField}>
-                <textarea onChange={onMessageChange} className={classes.text} ref={newMessageElement} value={props.forumPage.newTextMessage} />
+                <textarea onChange={onMessageChange} className={classes.text} ref={newMessageElement} value={props.newTextMessage} />
                 <button className={classes.buttonMessages} onClick={ onAddMessage }>Send</button>
             </div>
         </div>

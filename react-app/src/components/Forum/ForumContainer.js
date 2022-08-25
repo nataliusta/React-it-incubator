@@ -3,7 +3,9 @@ import Forum from './Forum.js';
 import {addMessageActionCreator, updateNewTextMessageActionCreator} from '../../redux/forum-reducer';
 
 const ForumContainer = (props) => {
-    debugger;
+    
+    let state = props.store.getState();
+
     let addMessage = () => {
         props.store.dispatch(addMessageActionCreator());
     }
@@ -12,7 +14,11 @@ const ForumContainer = (props) => {
         let action = updateNewTextMessageActionCreator(text);
         props.store.dispatch(action);
     }
-    return (<Forum updateNewTextMessage={onMessageChange} addMessage={addMessage} dialogsData={props.state} messagesData={props.state} state={props.state} />)
+    return (<Forum updateNewTextMessage={onMessageChange} 
+                   addMessage={addMessage} 
+                   dialogsData={state.forumPage.dialogsData} 
+                   messagesData={state.forumPage.messagesData} 
+                   newTextMessage={state.forumPage.newTextMessage} />)
 }
 
 export default ForumContainer;
