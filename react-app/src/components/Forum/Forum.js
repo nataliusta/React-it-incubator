@@ -2,10 +2,8 @@ import React from 'react';
 import classes from './Forum.module.css';
 import DialogItem from './DialogItem/DialogItem.js';
 import MessageItem from './MessageItem/MessageItem.js';
-import { addMessageActionCreator, updateNewTextMessageActionCreator  } from '../../redux/forum-reducer';
 
 const Forum = (props) => {
-
     //let state = props.store.getState().forumPage;
 
     let dialogsElements = props.dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
