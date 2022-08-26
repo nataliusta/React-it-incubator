@@ -11,7 +11,7 @@ const MainPage = (props) => {
           <img src='https://tdf-asia.com/wp-content/uploads/2021/01/in-store-display_TDF-visual-merchandising-manufacturer.jpg' alt='Chanel store' />
         </div>
         <Posts />
-        <Comments commentsData dispatch={props.dispatch}/>
+        <Comments dispatch={props.dispatch} store={props.store} />
       </div>
     )
 }
