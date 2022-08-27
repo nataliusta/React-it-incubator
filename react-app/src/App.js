@@ -19,8 +19,8 @@ debugger;
         <Navigation />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path='/mainpage' element={<MainPage store={props.store} />} />
-            <Route path='/forum/*' element={<ForumContainer store={props.store} />} />
+            <Route path='/mainpage' element={<MainPage />} />
+            <Route path='/forum/*' element={<ForumContainer />} />
             <Route path='/news' element={<News />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/gallery' element={<Gallery />} />
