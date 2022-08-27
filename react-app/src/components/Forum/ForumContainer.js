@@ -3,31 +3,30 @@ import Forum from './Forum.js';
 import {addMessageActionCreator, updateNewTextMessageActionCreator} from '../../redux/forum-reducer';
 import StoreContext from '../../StoreContext.js';
 
-const ForumContainer = (props) => {
-    return (
-        <StoreContext.Consumer> {
-            (store) => {
-                let state = props.store.getState();
+const ForumContainer = () => {
 
-                let addMessage = () => {
-                    props.store.dispatch(addMessageActionCreator());
-                }
+    return <StoreContext.Consumer> 
+        { store => {
             
-                let onMessageChange = (text) => {
-                    let action = updateNewTextMessageActionCreator(text);
-                    props.store.dispatch(action);
-                }
-                
-                return <Forum updateNewTextMessage={onMessageChange} 
-                addMessage={addMessage} 
-                dialogsData={state.forumPage.dialogsData} 
-                messagesData={state.forumPage.messagesData} 
-                newTextMessage={state.forumPage.newTextMessage} />)
-            
-            }       
+            let state = store.getState();
+
+            let addMessage = () => {
+                store.dispatch(addMessageActionCreator());
+            }
+        
+            let onMessageChange = (text) => {
+                let action = updateNewTextMessageActionCreator(text);
+                store.dispatch(action);
+            }
+
+            return <Forum updateNewTextMessage={onMessageChange} 
+                        addMessage={addMessage} 
+                        dialogsData={state.forumPage.dialogsData} 
+                        messagesData={state.forumPage.messagesData} 
+                        newTextMessage={state.forumPage.newTextMessage} />
         }
-        </StoreContext.Consumer>
-    )
+    }
+    </StoreContext.Consumer>
 }
 
 export default ForumContainer;

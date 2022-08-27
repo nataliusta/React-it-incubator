@@ -10,8 +10,7 @@ import News from './components/News/News';
 import Contacts from './components/Contacts/Contacts';
 import Gallery from './components/Gallery/Gallery';
 
-const App = (props) => {
-debugger;
+const App = () => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
