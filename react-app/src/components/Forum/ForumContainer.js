@@ -1,32 +1,28 @@
-import React from 'react';
+//import React from 'react';
 import Forum from './Forum.js';
 import {addMessageActionCreator, updateNewTextMessageActionCreator} from '../../redux/forum-reducer';
-import StoreContext from '../../StoreContext.js';
+import {connect} from 'react-redux';
 
-const ForumContainer = () => {
-
-    return <StoreContext.Consumer> 
-        { store => {
-            
-            let state = store.getState();
-
-            let addMessage = () => {
-                store.dispatch(addMessageActionCreator());
-            }
-        
-            let onMessageChange = (text) => {
-                let action = updateNewTextMessageActionCreator(text);
-                store.dispatch(action);
-            }
-
-            return <Forum updateNewTextMessage={onMessageChange} 
-                        addMessage={addMessage} 
-                        dialogsData={state.forumPage.dialogsData} 
-                        messagesData={state.forumPage.messagesData} 
-                        newTextMessage={state.forumPage.newTextMessage} />
-        }
+let mapStateToProps = (state) => { // function that returns an object with datas from state
+    return {
+        dialogsData: state.forumPage.dialogsData,
+        messagesData: state.forumPage.messagesData,
+        newTextMessage: state.forumPage.newTextMessage
     }
-    </StoreContext.Consumer>
 }
+
+let mapDispatchToProps = (dispatch) => { // contains an object with callbacks 
+    return {
+        addMessage: () => {
+            dispatch(addMessageActionCreator());
+        },
+        updateNewTextMessage: (text) => {
+            let action = updateNewTextMessageActionCreator(text);
+            dispatch(action);
+        },
+    } 
+}
+
+const ForumContainer = connect(mapStateToProps, mapDispatchToProps) (Forum);
 
 export default ForumContainer;
