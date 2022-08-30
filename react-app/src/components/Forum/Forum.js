@@ -6,8 +6,8 @@ import MessageItem from './MessageItem/MessageItem.js';
 const Forum = (props) => {
     //let state = props.store.getState().forumPage;
 
-    let dialogsElements = props.dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} /> );
-    let messagesElements = props.messagesData.map ( message => <MessageItem message={message.message} /> );
+    let dialogsElements = props.dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} key={dialog.id} /> );
+    let messagesElements = props.messagesData.map ( message => <MessageItem message={message.message} key={message.id} /> );
 
     let newMessageElement = React.createRef();
 

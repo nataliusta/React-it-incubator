@@ -5,7 +5,7 @@ import { addCommentCreator, updateNewCommentBodyCreator } from '../../../redux/m
 
 const Comments = (props) => {
 
-  //let commentElements = props.state.map ( comment => <CommentItem comment={comment.comment} /> );
+  //let commentElements = props.state.map ( comment => <CommentItem comment={comment.comment} key={comment.id} /> );
   let newCommentBody = props.newCommentBody; 
 
   let onSendCommentClick = () => {

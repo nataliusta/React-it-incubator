@@ -29,14 +29,17 @@ const forumReducer = (state = initialState, action) => {
                 id: 6,
                 message: state.newTextMessage
             };
-            let stateCopy = {...state};
-            stateCopy.messagesData = [...state.messagesData];
+            let stateCopy = {
+                ...state,
+                messagesData: [...state.messagesData]
+            };
             stateCopy.messagesData.push(newMessage);
             stateCopy.newTextMessage = '';
             return stateCopy;
         }
         case UPDATE_NEW_TEXT_MESSAGE: {
             let stateCopy = {...state};
+
             stateCopy.newTextMessage = action.newMessage;
             return stateCopy;  
         }

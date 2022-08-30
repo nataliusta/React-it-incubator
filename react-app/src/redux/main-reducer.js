@@ -10,15 +10,18 @@ let initialState = {
 }
 
 const mainReducer = (state = initialState, action) => {
+
+    let stateCopy = {...state};
+
     switch(action.type) {
         case UPDATE_NEW_COMMENT_BODY:
-            state.newCommentBody = action.body;
-            return state;
+            stateCopy.newCommentBody = action.body;
+            return stateCopy;
         case SEND_COMMENT:
             let body = state.newCommentBody;
-            state.newCommentBody = '';
-            state.commentsData.push({id: 3, comment: body});
-            return state;
+            stateCopy.newCommentBody = '';
+            stateCopy.commentsData.push({id: 3, comment: body});
+            return stateCopy;
         default:
             return state;
     }
