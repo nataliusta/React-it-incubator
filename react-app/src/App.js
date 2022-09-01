@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer';
 import ForumContainer from './components/Forum/ForumContainer';
 import News from './components/News/News';
 import Contacts from './components/Contacts/Contacts';
-import Users from './components/Users/Users';
+import UsersContainer from './components/Users/UsersContainer';
 
 const App = () => {
   return (
