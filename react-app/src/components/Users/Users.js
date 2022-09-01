@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Gallery = (props) => {
+const Users = (props) => {
     return (
         <div>
-            Gallery
+            Users
         </div>
     )
 }
 
-export default Gallery;
+export default Users;

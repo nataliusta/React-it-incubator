@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer';
 import ForumContainer from './components/Forum/ForumContainer';
 import News from './components/News/News';
 import Contacts from './components/Contacts/Contacts';
-import Gallery from './components/Gallery/Gallery';
+import Users from './components/Users/Users';
 
 const App = () => {
   return (
@@ -22,7 +22,7 @@ const App = () => {
             <Route path='/forum/*' element={<ForumContainer />} />
             <Route path='/news' element={<News />} />
             <Route path='/contacts' element={<Contacts />} />
-            <Route path='/gallery' element={<Gallery />} />
+            <Route path='/users' element={<Users />} />
           </Routes>
         </div>
         <Footer />
