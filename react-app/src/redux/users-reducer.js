@@ -3,12 +3,7 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 
 let initialState = {
-    users: [
-       /* {id: 1, followed: false, fullName: 'Mike', status: 'Hey guys!', location: {city: 'Minsk', country: 'Belarus'}},
-        {id: 2, followed: true, fullName: 'Andrew', status: 'The happiest', location: {city: 'Minsk', country: 'Belarus'}},
-        {id: 3, followed: false, fullName: 'Kate', status: 'Married and happy', location: {city: 'Minsk', country: 'Belarus'}},
-        {id: 4, followed: false, fullName: 'Sally', status: 'Love Chanel!', location: {city: 'Minsk', country: 'Belarus'}}, */
-      ],
+    users: [],
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -18,7 +13,7 @@ const usersReducer = (state = initialState, action) => {
         return {
             ...state,
             //users: [...state.users]
-            users: state.users.map( callback u => { // makes copy of users
+            users: state.users.map( u => { // makes copy of users
                 if (u.id === action.userId) {
                     return {...u, followed: true}
                 }
@@ -26,12 +21,11 @@ const usersReducer = (state = initialState, action) => {
 
             })
         }
-
         case UNFOLLOW:
         return {
             ...state,
             //users: [...state.users]
-            users: state.users.map( callback u => {
+            users: state.users.map( u => {
                 if (u.id === action.userId) {
                     return {...u, followed: false}
                 }
@@ -39,7 +33,6 @@ const usersReducer = (state = initialState, action) => {
 
             })
         }
-
         case SET_USERS:
             return {
                 ...state,

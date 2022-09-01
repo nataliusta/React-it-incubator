@@ -17,11 +17,12 @@ let mapDispatchToProps = (dispatch) => {
         unfollow: (userId) => {
             dispatch(unfollowAC(userId));
         },
-        setUser: (users) => {
+        setUsers: (users) => {
             dispatch(setUsersAC(users));
-        },
+        }
 
     }
 }
 
-export default connect (mapStateToProps, mapDispatchToProps) (Users);
+const UsersContainer = connect (mapStateToProps, mapDispatchToProps) (Users);
+export default UsersContainer;
