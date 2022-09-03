@@ -3,8 +3,8 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 
 let initialState = {
-    users: [],
-}
+    users: [ ]
+};
 
 const usersReducer = (state = initialState, action) => {
 
@@ -31,15 +31,17 @@ const usersReducer = (state = initialState, action) => {
                 }
                 return u;
 
+
             })
         }
-        case SET_USERS:
+        case SET_USERS: {
             return {
                 ...state,
                 users: [...state.users, ...action.users] // incoming users that we get from the action and pass them to the state
 
             }
-
+        }
+        
         default:
             return state; 
     }
