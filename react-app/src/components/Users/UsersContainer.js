@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { followAC, unfollowAC, setUsersAC, setCurrentPageAC, setTotalUsersCountAC } from '../../redux/users-reducer.js';
 import * as axios from 'axios';
 import Users from './Users';
+import preloader from '../../../assets/img/loading.gif';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -23,6 +24,7 @@ class UsersContainer extends React.Component {
 
     render() {
         return <>
+            {this.props.isFetching ? <img src={preloader} /> : null}
             <Users totalUsersCount={this.props.totalUsersCount} 
                         pageSize={this.props.pageSize}
                         currentPage={this.props.currentPage}
@@ -41,7 +43,7 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.userPage.isFetching
+        isFetching: state.usersPage.isFetching
     }
 }
 
