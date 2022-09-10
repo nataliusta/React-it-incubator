@@ -17,29 +17,3 @@ const MainPage = (props) => {
 }
 
 export default MainPage;
-
-/*let a = {
-  name: 'Natali',
-  surname: 'Usta',
-  age: 33,
-  location: 'Turkey',
-  position: 'Frontend developer',
-  isOnline: true,
-  colors: ['green', 'orange', 'black'],
-  teachers: {
-    newTeachers: {
-      name: 'John',
-      age: 40
-    }
-  }
-}
-
-let b = {...a};
-b.colors = [...a.colors];
-b.teachers = {...a.teachers};
-b.teachers.newTeachers = {...a.teachers.newTeachers};
-
-b.teachers.newTeachers.name = 'Boo';
-b.colors.push('blue');
-
-console.log(b); */

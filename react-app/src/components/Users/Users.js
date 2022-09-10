@@ -34,8 +34,8 @@ let Users = (props) => {
                 {'u.location.city'}
             </div>
             <div>
-                <NavLink to={'/profile/' + u.id}>
-                    <img src={ u.photos.small != null ? u.photos.small : userPhoto } className={classes.userPhoto} />
+                <NavLink to={'/mainpage/' + u.id}>
+                    <img src={ u.photos.small != null ? u.photos.small : userPhoto } className={classes.userPhoto} alt='User' />
                 </NavLink>
             </div>
             <div>

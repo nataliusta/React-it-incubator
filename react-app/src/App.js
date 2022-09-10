@@ -3,7 +3,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
-import MainPage from './components/MainPage/MainPage';
+import MainPageContainer from './components/MainPage/MainPageContainer';
 import Footer from './components/Footer/Footer';
 import ForumContainer from './components/Forum/ForumContainer';
 import News from './components/News/News';
@@ -18,7 +18,7 @@ const App = () => {
         <Navigation />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path='/mainpage' element={<MainPage />} />
+            <Route path='/mainpage' element={<MainPageContainer />} />
             <Route path='/forum/*' element={<ForumContainer />} />
             <Route path='/news' element={<News />} />
             <Route path='/contacts' element={<Contacts />} />
