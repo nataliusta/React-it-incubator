@@ -14,13 +14,13 @@ class MainPageContainer extends React.Component {
 
     render() {
         return (
-            <MainPage {...this.props} />
+            <MainPage {...this.props} profile={this.props.profile} />
         )
     }
 }
 
 let mapStateToProps = (state) => ({
-    a: 13
+    profile: state.MainPage.profile
 });
 
 
