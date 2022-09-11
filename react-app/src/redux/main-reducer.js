@@ -14,7 +14,7 @@ let initialState = {
 const mainReducer = (state = initialState, action) => {
 
     let stateCopy;
-
+    
     switch(action.type) {
         case UPDATE_NEW_COMMENT_BODY:
             stateCopy = {
@@ -31,15 +31,19 @@ const mainReducer = (state = initialState, action) => {
             stateCopy.commentsData.push({id: 3, comment: body});
             return stateCopy;
         case SET_USER_PROFILE: {
-            return {...state, profile: action.profile}
+            return {
+                ...state, 
+                profile: action.profile
+            }
         }
+
         default:
             return state;
     }
 };
 
 export const addCommentCreator = () => ({type: SEND_COMMENT}) 
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile}) 
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const updateNewCommentBodyCreator = (body) =>
     ({type: UPDATE_NEW_COMMENT_BODY, body: body})
 

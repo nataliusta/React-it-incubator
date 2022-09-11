@@ -4,7 +4,6 @@ import ProfileInfo from './ProfileInfo/ProfileInfo.js';
 import Comments from './Comments/Comments.js';
 
 const MainPage = (props) => {
-
     return (
       <div className={classes.mainContent}>
         <div className={classes.mainPicture}>
@@ -17,7 +16,7 @@ const MainPage = (props) => {
             </p>
             <cite className={classes.author}>― Coco Chanel</cite>
         </div>
-        <ProfileInfo />
+        <ProfileInfo profile={props.profile}/>
         <Comments dispatch={props.dispatch} />
       </div>
     )

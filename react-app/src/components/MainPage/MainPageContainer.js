@@ -5,6 +5,7 @@ import * as axios from 'axios';
 import { setUserProfile } from '../../redux/main-reducer';
 
 class MainPageContainer extends React.Component {
+    
     componentDidMount() {
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
             .then(response => {
@@ -14,13 +15,15 @@ class MainPageContainer extends React.Component {
 
     render() {
         return (
-            <MainPage {...this.props} profile={this.props.profile} />
+            <>
+                <MainPage {...this.props} />
+            </>
         )
     }
 }
 
 let mapStateToProps = (state) => ({
-    profile: state.MainPage.profile
+    profile: state.mainPage.profile
 });
 
 
