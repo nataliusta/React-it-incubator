@@ -11,7 +11,7 @@ const ProfileInfo = (props) => {
     return (
         <div className={classes.profile}>
             <div className={classes.descriptionBlock}>
-                <img src={props.profile.photos.large} alt='Avatar' />
+                <img src={props.profile.photos.large} className={classes.avatar} alt='Avatar' />
                 <span>Avatar</span>
             </div>
         </div>

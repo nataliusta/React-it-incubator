@@ -18,6 +18,7 @@ const App = () => {
         <Navigation />
         <div className='app-wrapper-content'>
           <Routes>
+            <Route path='/mainpage/:userId' element={<MainPageContainer />} />
             <Route path='/mainpage/*' element={<MainPageContainer />} />
             <Route path='/forum/*' element={<ForumContainer />} />
             <Route path='/news' element={<News />} />
