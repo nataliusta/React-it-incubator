@@ -1,4 +1,6 @@
 .header {
+    display: grid;
+    grid-template-columns: 120px 120px 1fr;
     grid-column: 1/-1;
     padding: 10px 20px;
 }
@@ -6,4 +8,9 @@
 .header img {
     width: 120px;
     height: 80px;
+}
+
+.loginBlock {
+    grid-column: 3/4;
+    justify-self: end;
 }
