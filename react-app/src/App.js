@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Navigation from './components/Navigation/Navigation';
 import MainPageContainer from './components/MainPage/MainPageContainer';
 import Footer from './components/Footer/Footer';
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
-        <Header />
+        <HeaderContainer />
         <Navigation />
         <div className='app-wrapper-content'>
           <Routes>
