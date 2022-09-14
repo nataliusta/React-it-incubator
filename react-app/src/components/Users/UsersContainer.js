@@ -4,12 +4,12 @@ import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleI
 import * as axios from 'axios';
 import Users from './Users';
 import Preloader from '../Preloader/Preloader.js';
-import {getUsers} from '../../api/api';
+import {usersAPI} from '../../api/api';
 
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true);
-        getUsers(this.props.currentPage, this.props.pageSize)
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
         .then(data => {
             this.props.toggleIsFetching(false);
             this.props.setUsers(data.items);
@@ -20,7 +20,7 @@ class UsersContainer extends React.Component {
     onPageChanged = (pageNumber) => {
         this.props.toggleIsFetching(true);
         this.props.setCurrentPage(pageNumber);
-        getUsers(pageNumber, this.props.pageSize)
+        usersAPI.getUsers(pageNumber, this.props.pageSize)
         .then(data => {
                 this.props.toggleIsFetching(false);
                 this.props.setUsers(data.items);
