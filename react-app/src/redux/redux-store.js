@@ -1,4 +1,4 @@
-import {combineReducers, createStore} from 'redux';
+import {applyMiddleware, combineReducers, createStore} from 'redux';
 //import {combineReducers, legacy_createStore as createStore} from "redux";
 import mainReducer from './main-reducer';
 import forumReducer from './forum-reducer';
@@ -12,7 +12,7 @@ let reducers = combineReducers({ // = state
     auth: authReducer
 });
 
-let store = createStore(reducers); // pass reducers to the store
+let store = createStore(reducers, applyMiddleware()); // pass reducers to the store
 
 window.store = store;
 
