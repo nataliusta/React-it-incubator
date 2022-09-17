@@ -1,3 +1,5 @@
+import {usersAPI} from '../api/api';
+
 const SEND_COMMENT = 'SEND-COMMENT';
 const UPDATE_NEW_COMMENT_BODY = 'UPDATE-NEW-COMMENT-BODY';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
@@ -46,5 +48,11 @@ export const addCommentCreator = () => ({type: SEND_COMMENT})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 export const updateNewCommentBodyCreator = (body) =>
     ({type: UPDATE_NEW_COMMENT_BODY, body: body})
+
+export const getUserProfile = (userId) => (dispatch) => { // thunk function
+    usersAPI.getProfile(userId).then(response => {
+        dispatch(setUserProfile(response.data));
+    });
+}
 
 export default mainReducer;

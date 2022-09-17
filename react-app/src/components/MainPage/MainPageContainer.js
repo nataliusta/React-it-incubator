@@ -1,10 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import MainPage from './MainPage';
-import * as axios from 'axios';
-import { setUserProfile } from '../../redux/main-reducer';
+import { getUserProfile } from '../../redux/main-reducer';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import {usersAPI} from '../../api/api';
 
 class MainPageContainer extends React.Component {
     
@@ -14,9 +12,7 @@ class MainPageContainer extends React.Component {
         if(!userId) {
             userId = 2;
         }
-        usersAPI.getProfile(userId).then(response => {
-                this.props.setUserProfile(response.data);
-            });
+        this.props.getUserProfile(userId);
     }
 
     render() {
@@ -48,4 +44,4 @@ const withRouter = (Component) => {
     return ComponentWithRouterProp;
 }
 
-export default connect(mapStateToProps, {setUserProfile}) (withRouter(MainPageContainer));
+export default connect(mapStateToProps, {getUserProfile}) (withRouter(MainPageContainer));
