@@ -28,8 +28,7 @@ class MainPageContainer extends React.Component {
 const AuthRedirectComponent = withAuthRedirect(MainPageContainer);
 
 let mapStateToProps = (state) => ({
-    profile: state.mainPage.profile,
-    isAuth: state.auth.isAuth
+    profile: state.mainPage.profile
 });
 
 const withRouter = (Component) => { // HOC
