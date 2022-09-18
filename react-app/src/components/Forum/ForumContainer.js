@@ -7,7 +7,8 @@ let mapStateToProps = (state) => { // function that returns an object with datas
     return {
         dialogsData: state.forumPage.dialogsData,
         messagesData: state.forumPage.messagesData,
-        newTextMessage: state.forumPage.newTextMessage
+        newTextMessage: state.forumPage.newTextMessage,
+        isAuth: state.auth.isAuth
     }
 }
 

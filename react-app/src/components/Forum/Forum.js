@@ -1,10 +1,10 @@
 import React from 'react';
+import {Navigate} from 'react-router-dom';
 import classes from './Forum.module.css';
 import DialogItem from './DialogItem/DialogItem.js';
 import MessageItem from './MessageItem/MessageItem.js';
 
 const Forum = (props) => {
-    //let state = props.store.getState().forumPage;
 
     let dialogsElements = props.dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} key={dialog.id} /> );
     let messagesElements = props.messagesData.map ( message => <MessageItem message={message.message} key={message.id} /> );
@@ -13,16 +13,14 @@ const Forum = (props) => {
 
     let onAddMessage = () => {
         props.addMessage();
-        //props.dispatch(addMessageActionCreator());
     }
 
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
         props.updateNewTextMessage(text);
-        //let action = {type: 'UPDATE-NEW-TEXT-MESSAGE', newMessage: text };
-        //let action = updateNewTextMessageActionCreator(text);
-        //props.dispatch(action);
     }
+
+    if (!props.isAuth) return <Navigate to='/login' />;
 
     return (
         <div className={classes.forumDialogs}>

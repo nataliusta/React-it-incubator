@@ -4,6 +4,7 @@ import ProfileInfo from './ProfileInfo/ProfileInfo.js';
 import Comments from './Comments/Comments.js';
 
 const MainPage = (props) => {
+
     return (
       <div className={classes.mainContent}>
         <div className={classes.mainPicture}>

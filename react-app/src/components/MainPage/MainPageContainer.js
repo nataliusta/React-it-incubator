@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import MainPage from './MainPage';
 import { getUserProfile } from '../../redux/main-reducer';
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams, Navigate } from "react-router-dom";
 
 class MainPageContainer extends React.Component {
     
@@ -16,6 +16,9 @@ class MainPageContainer extends React.Component {
     }
 
     render() {
+
+        if (!this.props.isAuth) return <Navigate to='/login' />;
+
         return (
             <>
                 <MainPage {...this.props} />
@@ -25,7 +28,8 @@ class MainPageContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-    profile: state.mainPage.profile
+    profile: state.mainPage.profile,
+    isAuth: state.auth.isAuth
 });
 
 const withRouter = (Component) => {

@@ -9,6 +9,7 @@ import ForumContainer from './components/Forum/ForumContainer';
 import News from './components/News/News';
 import Contacts from './components/Contacts/Contacts';
 import UsersContainer from './components/Users/UsersContainer';
+import Login from './components/Login/Login';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
             <Route path='/news' element={<News />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/users' element={<UsersContainer />} />
+            <Route path='/login' element={<Login />} />
           </Routes>
         </div>
         <Footer />
