@@ -2,7 +2,7 @@
 import Forum from './Forum.js';
 import {addMessageActionCreator, updateNewTextMessageActionCreator} from '../../redux/forum-reducer';
 import {connect} from 'react-redux';
-import {Navigate} from 'react-router-dom';
+import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
 let mapStateToProps = (state) => { // function that returns an object with datas from state
     return {
@@ -25,10 +25,7 @@ let mapDispatchToProps = (dispatch) => { // contains an object with callbacks
     } 
 }
 
-const AuthRedirectComponent = (props) => {
-    if (!this.props.isAuth) return <Navigate to='/login' />;
-    return <Forum {...props} />
-}
+const AuthRedirectComponent = withAuthRedirect(Forum);
 
 const ForumContainer = connect(mapStateToProps, mapDispatchToProps) (AuthRedirectComponent);
 
