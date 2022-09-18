@@ -3,6 +3,7 @@ import Forum from './Forum.js';
 import {addMessageActionCreator, updateNewTextMessageActionCreator} from '../../redux/forum-reducer';
 import {connect} from 'react-redux';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 let mapStateToProps = (state) => { // function that returns an object with datas from state
     return {
@@ -24,8 +25,7 @@ let mapDispatchToProps = (dispatch) => { // contains an object with callbacks
     } 
 }
 
-const AuthRedirectComponent = withAuthRedirect(Forum);
-
-const ForumContainer = connect(mapStateToProps, mapDispatchToProps) (AuthRedirectComponent);
-
-export default ForumContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(Forum);

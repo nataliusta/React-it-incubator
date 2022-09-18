@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { compose } from 'redux';
 import MainPage from './MainPage';
 import { getUserProfile } from '../../redux/main-reducer';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
@@ -25,8 +26,6 @@ class MainPageContainer extends React.Component {
     }
 }
 
-const AuthRedirectComponent = withAuthRedirect(MainPageContainer);
-
 let mapStateToProps = (state) => ({
     profile: state.mainPage.profile
 });
@@ -48,5 +47,8 @@ const withRouter = (Component) => { // HOC
     return ComponentWithRouterProp;
 }
 
-let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
-export default connect(mapStateToProps, {getUserProfile})(WithUrlDataContainerComponent);
+export default compose(
+    connect(mapStateToProps, {getUserProfile}),
+    withRouter,
+    withAuthRedirect
+)(MainPageContainer);
