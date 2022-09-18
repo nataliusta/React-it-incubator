@@ -20,7 +20,7 @@ const Forum = (props) => {
         props.updateNewTextMessage(text);
     }
 
-    if (!props.isAuth) return <Navigate to='/login' />;
+    //if (!props.isAuth) return <Navigate to='/login' />;
 
     return (
         <div className={classes.forumDialogs}>

@@ -16,9 +16,6 @@ class MainPageContainer extends React.Component {
     }
 
     render() {
-
-        if (!this.props.isAuth) return <Navigate to='/login' />;
-
         return (
             <>
                 <MainPage {...this.props} />
@@ -27,13 +24,19 @@ class MainPageContainer extends React.Component {
     }
 }
 
+const AuthRedirectComponent = (props) => {
+    if (!this.props.isAuth) return <Navigate to='/login' />;
+    return <MainPageContainer {...props} />
+}
+
 let mapStateToProps = (state) => ({
     profile: state.mainPage.profile,
     isAuth: state.auth.isAuth
 });
 
-const withRouter = (Component) => {
-    const ComponentWithRouterProp = (props) => {
+const withRouter = (Component) => { // HOC
+
+    const ComponentWithRouterProp = (props) => { // Container component
         let location = useLocation();
         let navigate = useNavigate();
         let params = useParams();
@@ -48,4 +51,5 @@ const withRouter = (Component) => {
     return ComponentWithRouterProp;
 }
 
-export default connect(mapStateToProps, {getUserProfile}) (withRouter(MainPageContainer));
+let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
+export default connect(mapStateToProps, {getUserProfile})(WithUrlDataContainerComponent);
