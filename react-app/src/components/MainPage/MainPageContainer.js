@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import MainPage from './MainPage';
 import { getUserProfile } from '../../redux/main-reducer';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import {withAuthRedirect} from '../../hoc/withAuthRedirect';
+//import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
 class MainPageContainer extends React.Component {
     
@@ -49,6 +49,6 @@ const withRouter = (Component) => { // HOC
 
 export default compose(
     connect(mapStateToProps, {getUserProfile}),
-    withRouter,
-    withAuthRedirect
+    withRouter
+    //withAuthRedirect
 )(MainPageContainer);
