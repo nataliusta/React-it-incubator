@@ -1,8 +1,9 @@
-import {usersAPI} from '../api/api';
+import {usersAPI, profileAPI} from '../api/api';
 
 const SEND_COMMENT = 'SEND-COMMENT';
 const UPDATE_NEW_COMMENT_BODY = 'UPDATE-NEW-COMMENT-BODY';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_STATUS = 'SET_STATUS';
 
 let initialState = {
     commentsData: [
@@ -10,7 +11,8 @@ let initialState = {
       {id: 2, comment: 'I love you so much!'}
     ],
     newCommentBody: '', // empty string to be changed
-    profile: null // as long as a user's profile is not created and initialized
+    profile: null, // as long as a user's profile is not created and initialized
+    status: ''
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -38,20 +40,41 @@ const mainReducer = (state = initialState, action) => {
                 profile: action.profile
             }
         }
+        case SET_STATUS: {
+            return {
+                ...state, 
+                status: action.status
+            }
+        }
 
         default:
             return state;
     }
 };
 
-export const addCommentCreator = () => ({type: SEND_COMMENT}) 
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
+export const addCommentCreator = () => ({type: SEND_COMMENT});
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
+export const setStatus = (status) => ({type: SET_STATUS, status});
 export const updateNewCommentBodyCreator = (body) =>
-    ({type: UPDATE_NEW_COMMENT_BODY, body: body})
+    ({type: UPDATE_NEW_COMMENT_BODY, body: body});
 
 export const getUserProfile = (userId) => (dispatch) => { // thunk function
     usersAPI.getProfile(userId).then(response => {
         dispatch(setUserProfile(response.data));
+    });
+};
+
+export const getStatus = (userId) => (dispatch) => { // getStatus thunk function
+    profileAPI.getStatus(userId).then(response => {
+        dispatch(setStatus(response.data));
+    });
+}
+
+export const updateStatus = (status) => (dispatch) => { // updateStatus thunk function
+    profileAPI.updateStatus(status).then(response => {
+        if (response.data.resultCode === 0) {
+        dispatch(setStatus(status));
+        }
     });
 }
 

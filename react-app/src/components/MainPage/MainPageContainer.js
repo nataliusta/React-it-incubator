@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { compose } from 'redux';
 import MainPage from './MainPage';
-import { getUserProfile } from '../../redux/main-reducer';
+import { getUserProfile, getStatus, updateStatus } from '../../redux/main-reducer';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 //import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
@@ -15,19 +15,21 @@ class MainPageContainer extends React.Component {
             userId = 2;
         }
         this.props.getUserProfile(userId);
+        this.props.getStatus(userId);
     }
 
     render() {
         return (
             <>
-                <MainPage {...this.props} />
+                <MainPage {...this.props} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus} />
             </>
         )
     }
 }
 
 let mapStateToProps = (state) => ({
-    profile: state.mainPage.profile
+    profile: state.mainPage.profile,
+    state: state.mainPage.status
 });
 
 const withRouter = (Component) => { // HOC
@@ -48,7 +50,7 @@ const withRouter = (Component) => { // HOC
 }
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile}),
+    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus}),
     withRouter
     //withAuthRedirect
 )(MainPageContainer);
