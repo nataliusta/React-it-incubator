@@ -13,7 +13,7 @@ const ProfileInfo = (props) => {
         <div className={classes.profile}>
             <div className={classes.descriptionBlock}>
                 <img src={props.profile.photos.large} className={classes.avatar} alt='Avatar' />
-                <ProfileStatus status={'Hello,guys!'}/>
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
             </div>
         </div>
     )

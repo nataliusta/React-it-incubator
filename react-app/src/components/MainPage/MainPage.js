@@ -17,7 +17,7 @@ const MainPage = (props) => {
             </p>
             <cite className={classes.author}>― Coco Chanel</cite>
         </div>
-        <ProfileInfo profile={props.profile}/>
+        <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus} />
         <Comments dispatch={props.dispatch} />
       </div>
     )
