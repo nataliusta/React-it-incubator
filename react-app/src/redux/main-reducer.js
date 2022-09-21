@@ -73,7 +73,7 @@ export const getStatus = (userId) => (dispatch) => { // getStatus thunk function
 export const updateStatus = (status) => (dispatch) => { // updateStatus thunk function
     profileAPI.updateStatus(status).then(response => {
         if (response.data.resultCode === 0) {
-        dispatch(setStatus(status));
+            dispatch(setStatus(status));
         }
     });
 }

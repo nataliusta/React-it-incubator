@@ -15,21 +15,19 @@ class MainPageContainer extends React.Component {
             userId = 2;
         }
         this.props.getUserProfile(userId);
-        this.props.getStatus(userId);
+            this.props.getStatus(userId);
     }
 
     render() {
         return (
-            <>
                 <MainPage {...this.props} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus} />
-            </>
         )
     }
 }
 
 let mapStateToProps = (state) => ({
     profile: state.mainPage.profile,
-    state: state.mainPage.status
+    status: state.mainPage.status
 });
 
 const withRouter = (Component) => { // HOC
