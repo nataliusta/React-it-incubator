@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './ProfileInfo.module.css';
+//import classes from './ProfileInfo.module.css';
 
 class ProfileStatus extends React.Component {
 
@@ -25,6 +25,14 @@ class ProfileStatus extends React.Component {
         this.setState({
             status: e.currentTarget.value
         });
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            });
+        }
     }
 
     render() {
