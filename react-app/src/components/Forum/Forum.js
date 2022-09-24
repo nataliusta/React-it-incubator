@@ -1,8 +1,9 @@
 import React from 'react';
-import {Navigate} from 'react-router-dom';
+//import {Navigate} from 'react-router-dom';
 import classes from './Forum.module.css';
 import DialogItem from './DialogItem/DialogItem.js';
 import MessageItem from './MessageItem/MessageItem.js';
+import { Field, reduxForm } from 'redux-form';
 
 const Forum = (props) => {
 
@@ -20,7 +21,9 @@ const Forum = (props) => {
         props.updateNewTextMessage(text);
     }
 
-    //if (!props.isAuth) return <Navigate to='/login' />;
+    const addNewMessage = (values) => {
+        alert(values.newTextMessage);
+    }
 
     return (
         <div className={classes.forumDialogs}>
@@ -34,12 +37,22 @@ const Forum = (props) => {
                     <div>{messagesElements}</div>
                 </ul>
             </div>
-            <div className={classes.messagesField}>
-                <textarea onChange={onMessageChange} className={classes.text} ref={newMessageElement} value={props.newTextMessage} />
-                <button className={classes.buttonMessages} onClick={ onAddMessage }>Send</button>
-            </div>
+            <AddMessageFormRedux onSubmit={addNewMessage} />
         </div>
     )
 }
+
+const AddMessageForm = (props) => {
+    return ( 
+        <form onSubmit={props.handleSubmit} className={classes.messagesField}>
+            <div>
+                <Field component='textarea' name='newTextMessage' placeholder='Enter your message' />
+            </div>
+                <button className={classes.buttonMessages}>Send</button>
+        </form>
+    )
+}
+
+const AddMessageFormRedux = reduxForm({form: 'dialogAddMessageForm'})(AddMessageForm)
 
 export default Forum;
