@@ -1,6 +1,6 @@
 //import React from 'react';
 import Forum from './Forum.js';
-import {addMessageActionCreator, updateNewTextMessageActionCreator} from '../../redux/forum-reducer';
+import {addMessageActionCreator} from '../../redux/forum-reducer';
 import {connect} from 'react-redux';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
@@ -15,13 +15,9 @@ let mapStateToProps = (state) => { // function that returns an object with datas
 
 let mapDispatchToProps = (dispatch) => { // contains an object with callbacks 
     return {
-        addMessage: () => {
-            dispatch(addMessageActionCreator());
-        },
-        updateNewTextMessage: (text) => {
-            let action = updateNewTextMessageActionCreator(text);
-            dispatch(action);
-        },
+        addMessage: (newTextMessage) => {
+            dispatch(addMessageActionCreator(newTextMessage));
+        }
     } 
 }
 

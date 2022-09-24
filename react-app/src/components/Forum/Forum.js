@@ -1,5 +1,4 @@
 import React from 'react';
-//import {Navigate} from 'react-router-dom';
 import classes from './Forum.module.css';
 import DialogItem from './DialogItem/DialogItem.js';
 import MessageItem from './MessageItem/MessageItem.js';
@@ -10,19 +9,10 @@ const Forum = (props) => {
     let dialogsElements = props.dialogsData.map ( dialog => <DialogItem name={dialog.name} id={dialog.id} key={dialog.id} /> );
     let messagesElements = props.messagesData.map ( message => <MessageItem message={message.message} key={message.id} /> );
 
-    let newMessageElement = React.createRef();
-
-    let onAddMessage = () => {
-        props.addMessage();
-    }
-
-    let onMessageChange = () => {
-        let text = newMessageElement.current.value;
-        props.updateNewTextMessage(text);
-    }
+    //let newMessageElement = React.createRef();
 
     const addNewMessage = (values) => {
-        alert(values.newTextMessage);
+        props.addMessage(values.newTextMessage);
     }
 
     return (

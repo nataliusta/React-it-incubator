@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_TEXT_MESSAGE = 'UPDATE-NEW-TEXT-MESSAGE'; // action's name
 
 let initialState = {
     dialogsData: [
@@ -19,7 +18,6 @@ let initialState = {
         {id: 4, message: 'Hello everyone!!!'},
         {id: 5, message: 'Not sure I liked Chanel Coco Mademoiselle....'}
       ],
-    newTextMessage: 'Write new message..'
 }
 
 const forumReducer = (state = initialState, action) => {
@@ -27,29 +25,18 @@ const forumReducer = (state = initialState, action) => {
         case ADD_MESSAGE: {
             let newMessage = {
                 id: 6,
-                message: state.newTextMessage
+                message: action.newTextMessage
             };
             return {
                 ...state,
-                newTextMessage: '',
                 messagesData: [...state.messagesData, newMessage]
             };
-            //stateCopy.messagesData.push(newMessage);
-            //stateCopy.newTextMessage = '';
-        }
-        case UPDATE_NEW_TEXT_MESSAGE: {
-            return {
-                ...state,
-                newTextMessage: action.newMessage
-            }; 
         }
         default:
             return state; 
     }
 };
 
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE}) // function that returns an object (action) with a type
-export const updateNewTextMessageActionCreator = (text) =>  // function that returns an object (action) with a type 
-    ({type: UPDATE_NEW_TEXT_MESSAGE, newMessage: text})
+export const addMessageActionCreator = (newTextMessage) => ({type: ADD_MESSAGE, newTextMessage}) // function that returns an object (action) with a type
 
 export default forumReducer;
