@@ -1,7 +1,8 @@
 import React from 'react';
 import classes from './Comments.module.css';
 import CommentItem from './CommentItem/CommentItem.js';
-import { addCommentCreator, updateNewCommentBodyCreator } from '../../../redux/main-reducer';
+import { addCommentCreator} from '../../../redux/main-reducer';
+import { Field, reduxForm } from 'redux-form';
 
 const Comments = (props) => {
 
@@ -12,23 +13,29 @@ const Comments = (props) => {
     props.dispatch(addCommentCreator());
   }
 
-  let onNewCommentChange = (event) => {
-    let body = event.target.value;
-    props.dispatch(updateNewCommentBodyCreator(body));
+  let onAddComment = (values) => {
+    props.addComment(values.addCommentBody);
   }
     return (
         <div className={classes.comments}>
             <div className={classes.commentsItem}>
                 <CommentItem />
             </div>
-            <div className={classes.commentsField}>
-                <textarea className={classes.text} value={newCommentBody} 
-                            onChange={onNewCommentChange}
-                            placeholder='Help us to be better'/>
-                <button className={classes.buttonComments} onClick={onSendCommentClick}>Send</button>
-          </div>
+            <AddCommentBodyFormRedux onSubmit={onAddComment} />
         </div>
     )
 }
+
+const AddCommentBodyForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit} className={classes.commentsField}>
+              <Field className={classes.text} component='textarea' 
+                    name='addCommentBody' />
+              <button className={classes.buttonComments}>Send</button>
+    </form>
+  )
+}
+
+const AddCommentBodyFormRedux = reduxForm({form: 'ProfileAddCommentBodyForm'})(AddCommentBodyForm);
 
 export default Comments;
