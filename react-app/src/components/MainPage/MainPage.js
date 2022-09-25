@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './MainPage.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo.js';
-import Comments from './Comments/Comments.js';
+import CommentsContainer from './Comments/CommentsContainer';
 
 const MainPage = (props) => {
 
@@ -18,7 +18,7 @@ const MainPage = (props) => {
             <cite className={classes.author}>― Coco Chanel</cite>
         </div>
         <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus} />
-        <Comments dispatch={props.dispatch} />
+        <CommentsContainer />
       </div>
     )
 }

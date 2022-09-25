@@ -6,6 +6,7 @@ import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 
 let mapStateToProps = (state) => { // function that returns an object with datas from state
+    
     return {
         dialogsData: state.forumPage.dialogsData,
         messagesData: state.forumPage.messagesData,

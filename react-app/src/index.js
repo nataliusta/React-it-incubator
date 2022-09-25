@@ -17,8 +17,4 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
         </React.StrictMode>
   );
 
-/*store.subscribe(() => {
-    rerenderEntireTree();
-});*/
-
 reportWebVitals();

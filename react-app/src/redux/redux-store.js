@@ -4,6 +4,7 @@ import mainReducer from './main-reducer';
 import forumReducer from './forum-reducer';
 import usersReducer from './users-reducer';
 import authReducer from './auth-reducer';
+import commentsReducer from './comments-reducer';
 import thunkMiddleware from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form';
 
@@ -12,6 +13,7 @@ let reducers = combineReducers({ // = state
     forumPage: forumReducer,
     usersPage: usersReducer,
     auth: authReducer,
+    comments: commentsReducer,
     form: formReducer
 });
 

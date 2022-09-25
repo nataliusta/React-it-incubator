@@ -1,27 +1,26 @@
 //import React from 'react';
-import Forum from './Forum.js';
-import {addCommentCreator} from '../../redux/forum-reducer';
+import Comments from './Comments';
+import {addCommentCreator} from '../../../redux/comments-reducer';
 import {connect} from 'react-redux';
-import {withAuthRedirect} from '../../hoc/withAuthRedirect';
-import { compose } from 'redux';
+//import {withAuthRedirect} from '../../hoc/withAuthRedirect';
+//import { compose } from 'redux';
 
 let mapStateToProps = (state) => { // function that returns an object with datas from state
+    
     return {
-        dialogsData: state.forumPage.dialogsData,
-        messagesData: state.forumPage.messagesData,
-        newTextMessage: state.forumPage.newTextMessage
+        commentsData: state.comments.commentsData,
+        newCommentBody: state.mainPage.newCommentBody
     }
 }
 
 let mapDispatchToProps = (dispatch) => { // contains an object with callbacks 
     return {
-        addMessage: (addComment) => {
-            dispatch(addCommentCreator(addComment));
+        addComment: (newCommentBody) => {
+            dispatch(addCommentCreator(newCommentBody));
         }
     } 
 }
 
-export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
-    withAuthRedirect
-)(Forum);
+const CommentsContainer = connect(mapStateToProps, mapDispatchToProps) (Comments);
+
+export default CommentsContainer;

@@ -1,4 +1,4 @@
-const SEND_COMMENT = 'SEND-COMMENT';
+const ADD_COMMENT = 'ADD-COMMENT';
 
 let initialState = {
     commentsData: [
@@ -8,24 +8,23 @@ let initialState = {
 };
 
 const commentsReducer = (state = initialState, action) => {
-
-    let stateCopy;
-    
     switch(action.type) {
-        case SEND_COMMENT:
-            let body = action.newCommentBody;
-            stateCopy = {
-                ...state,
-                newCommentBody: ''
+        case ADD_COMMENT: {
+            let newComment = {
+                id: 7,
+                comment: action.newCommentBody
             };
-            stateCopy.commentsData.push({id: 3, comment: body});
-            return stateCopy;
+            return {
+                ...state,
+                commentsData: [...state.commentsData, newComment]
+            };
+        }
         default:
             return state;
     }
 };
 
-export const addCommentCreator = () => ({type: SEND_COMMENT});
+export const addCommentCreator = (newCommentBody) => ({type: ADD_COMMENT, newCommentBody});
 
 export default commentsReducer;
 

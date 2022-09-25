@@ -1,31 +1,16 @@
 import {usersAPI, profileAPI} from '../api/api';
 
-const SEND_COMMENT = 'SEND-COMMENT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
 let initialState = {
-    commentsData: [
-      {id: 1, comment: 'Hello'},
-      {id: 2, comment: 'I love you so much!'}
-    ],
     profile: null, // as long as a user's profile is not created and initialized
     status: ''
 };
 
 const mainReducer = (state = initialState, action) => {
-
-    let stateCopy;
     
     switch(action.type) {
-        case SEND_COMMENT:
-            let body = action.newCommentBody;
-            stateCopy = {
-                ...state,
-                newCommentBody: ''
-            };
-            stateCopy.commentsData.push({id: 3, comment: body});
-            return stateCopy;
         case SET_USER_PROFILE: {
             return {
                 ...state, 
@@ -44,7 +29,6 @@ const mainReducer = (state = initialState, action) => {
     }
 };
 
-export const addCommentCreator = () => ({type: SEND_COMMENT});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setStatus = (status) => ({type: SET_STATUS, status});
 

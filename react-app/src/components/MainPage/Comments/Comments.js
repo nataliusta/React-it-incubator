@@ -1,27 +1,29 @@
 import React from 'react';
 import classes from './Comments.module.css';
 import CommentItem from './CommentItem/CommentItem.js';
-import { addCommentCreator} from '../../../redux/main-reducer';
 import { Field, reduxForm } from 'redux-form';
 
 const Comments = (props) => {
+  
+  let commentElements = props.commentsData.map ( comment => <CommentItem comment={comment.comment} key={comment.id} /> );
+  //let newCommentBody = props.newCommentBody; 
 
-  //let commentElements = props.state.map ( comment => <CommentItem comment={comment.comment} key={comment.id} /> );
-  let newCommentBody = props.newCommentBody; 
-
-  let onSendCommentClick = () => {
+  /*let onSendCommentClick = () => {
     props.dispatch(addCommentCreator());
-  }
+  }*/
 
-  let onAddComment = (values) => {
-    props.addComment(values.addCommentBody);
-  }
+  let AddNewComment = (values) => {
+    props.addComment(values.newCommentBody);
+  };
+
     return (
         <div className={classes.comments}>
-            <div className={classes.commentsItem}>
-                <CommentItem />
+            <div className={classes.comment}>
+                <ul className={classes.commentList}>
+                    <div>{commentElements}</div>
+                </ul>
             </div>
-            <AddCommentBodyFormRedux onSubmit={onAddComment} />
+            <AddCommentBodyFormRedux onSubmit={AddNewComment} />
         </div>
     )
 }
@@ -30,12 +32,12 @@ const AddCommentBodyForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit} className={classes.commentsField}>
               <Field className={classes.text} component='textarea' 
-                    name='addCommentBody' />
+                    name='newCommentBody' placeholder='Enter your comment' />
               <button className={classes.buttonComments}>Send</button>
     </form>
   )
 }
 
-const AddCommentBodyFormRedux = reduxForm({form: 'ProfileAddCommentBodyForm'})(AddCommentBodyForm);
+const AddCommentBodyFormRedux = reduxForm({form: 'profileAddCommentBodyForm'})(AddCommentBodyForm);
 
 export default Comments;

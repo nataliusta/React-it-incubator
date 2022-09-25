@@ -1,5 +1,6 @@
 import mainReducer from './main-reducer';
 import forumReducer from './forum-reducer';
+import commentsReducer from './comments-reducer';
 
 let store = {
     _state: { // private
@@ -43,6 +44,7 @@ let store = {
     dispatch(action) { // a method,{type: 'ADD-MESSAGE'}..state changed throught dispatch actions
 
       this._state.mainPage = mainReducer(this._state.mainPage, action);
+      this._state.mainPage = commentsReducer(this._state.comments, action);
       this._state.forumPage = forumReducer(this._state.forumPage, action);
 
       this._callSubscriber(this._state);

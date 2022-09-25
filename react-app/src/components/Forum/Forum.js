@@ -13,7 +13,7 @@ const Forum = (props) => {
 
     const addNewMessage = (values) => {
         props.addMessage(values.newTextMessage);
-    }
+    };
 
     return (
         <div className={classes.forumDialogs}>
