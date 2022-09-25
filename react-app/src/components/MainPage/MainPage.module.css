@@ -13,19 +13,7 @@ img {
     resize: none;
 }
 
-.buttonComments {
-    display: inline-block;
-    align-self: end;
-    box-sizing: border-box;
-    font-family: inherit;
-    width: 110px;
-    padding: 10px;
-    grid-column: 2/3;
-    border-radius: 8px;
-    background-color: white;
-    text-align: center;
-    border: 1px solid black;
-    text-decoration: none;
-    text-transform: uppercase;
-    cursor: pointer;
+.postItem {
+    font-size: 18px;
+    font-weight: 600;
 }

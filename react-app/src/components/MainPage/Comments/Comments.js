@@ -6,20 +6,15 @@ import { Field, reduxForm } from 'redux-form';
 const Comments = (props) => {
   
   let commentElements = props.commentsData.map ( comment => <CommentItem comment={comment.comment} key={comment.id} /> );
-  //let newCommentBody = props.newCommentBody; 
-
-  /*let onSendCommentClick = () => {
-    props.dispatch(addCommentCreator());
-  }*/
 
   let AddNewComment = (values) => {
     props.addComment(values.newCommentBody);
   };
 
     return (
-        <div className={classes.comments}>
-            <div className={classes.comment}>
-                <ul className={classes.commentList}>
+        <div className={classes.mainComments}>
+            <div className={classes.comments}>
+                <ul className={classes.commentsList}>
                     <div>{commentElements}</div>
                 </ul>
             </div>
