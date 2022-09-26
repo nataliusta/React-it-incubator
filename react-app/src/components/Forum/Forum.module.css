@@ -48,11 +48,6 @@
     padding: 20px;
 }
 
-.item {
-    margin-bottom: 10px;
-    list-style: none;
-}
-
 .messagesField {
     display: grid;
     column-gap: 10px;

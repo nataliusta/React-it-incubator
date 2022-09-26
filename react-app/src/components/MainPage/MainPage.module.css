@@ -2,13 +2,6 @@ img {
     width: 1050px;
 }
 
-.commentsField {
-    display: grid;
-    column-gap: 10px;
-    grid-column: 2/3;
-    padding: 10px;
-}
-
 .text {
     resize: none;
 }
