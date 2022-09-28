@@ -3,6 +3,7 @@ import classes from './Comments.module.css';
 import CommentItem from './CommentItem/CommentItem.js';
 import { Field, reduxForm } from 'redux-form';
 import { maxLengthCreator, required } from '../../../utils/validators';
+import { Textarea } from '../../FormControls/FormControls';
 
 const maxLength10 = maxLengthCreator(10);
 
@@ -29,8 +30,8 @@ const Comments = (props) => {
 const AddCommentBodyForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit} className={classes.commentsField}>
-              <Field className={classes.text} component='textarea' 
-                    name='newCommentBody' placeholder='Enter your comment'
+              <Field className={classes.text} component={Textarea} 
+                    name='newCommentBody' placeholder={'Enter your comment'}
                     validate = {[required, maxLength10]} />
               <button className={classes.buttonComments}>Send</button>
     </form>
