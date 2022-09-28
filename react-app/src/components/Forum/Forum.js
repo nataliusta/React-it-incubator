@@ -3,7 +3,7 @@ import classes from './Forum.module.css';
 import DialogItem from './DialogItem/DialogItem.js';
 import MessageItem from './MessageItem/MessageItem.js';
 import { Field, reduxForm } from 'redux-form';
-import { Textarea } from '../FormControls/FormControls';
+import { Element } from '../FormControls/FormControls';
 import { maxLengthCreator, required } from '../../utils/validators';
 
 const Forum = (props) => {
@@ -31,7 +31,7 @@ const Forum = (props) => {
         </div>
     )
 }
-
+const Textarea = Element("textarea");
 const maxLength50 = maxLengthCreator(50);
 
 const AddMessageForm = (props) => {

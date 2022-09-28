@@ -3,7 +3,7 @@ import classes from './Comments.module.css';
 import CommentItem from './CommentItem/CommentItem.js';
 import { Field, reduxForm } from 'redux-form';
 import { maxLengthCreator, required } from '../../../utils/validators';
-import { Textarea } from '../../FormControls/FormControls';
+import { Element } from '../../FormControls/FormControls';
 
 const maxLength10 = maxLengthCreator(10);
 
@@ -26,6 +26,8 @@ const Comments = (props) => {
         </div>
     )
 }
+
+const Textarea = Element("textarea");
 
 const AddCommentBodyForm = (props) => {
   return (
