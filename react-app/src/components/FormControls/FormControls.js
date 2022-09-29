@@ -7,18 +7,7 @@ export const Element = Element => ({input, meta, ...props}) => { // rest operato
     return (
         <div className={classes.formControl + '' + (hasError ? classes.error : '')}>
             <Element {...input} {...props} /> 
-            { hasError && <span>{meta.error}</span> } 
+            { hasError && <span className={classes.errorText}>{meta.error}</span> } 
         </div>
     )
 }
-
-/*export const Element = Element => ({input, meta, ...props}) => {
-    
-    const hasError = meta.touched && meta.error;
-    return (
-        <div className={classes.formControl + '' + (hasError ? classes.error : '')}>
-            <Element {...input} {...props} /> 
-            { hasError && <span>{meta.error}</span> } 
-        </div>
-    )
-}*/

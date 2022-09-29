@@ -33,6 +33,7 @@ const LoginReduxForm = reduxForm({form: 'login'})(LoginForm) // wrapping in Redu
 
 const Login = (props) => {
     const onSubmit = (formData) => {
+        console.log(formData);
 
     }
     return <div>
