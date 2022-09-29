@@ -8,7 +8,8 @@ const Header = (props) => {
           <img src='https://i.pinimg.com/736x/7a/6f/7e/7a6f7e9c3d564feb516bff7e62e3cc33.jpg' alt='Chanel logo' />
           <img src='https://cdn.shopify.com/s/files/1/1078/7736/products/FANCLUBFINALLOGO.png?v=1585045856' alt='Fun club logo' />
           <div className={classes.loginBlock}>
-            { props.isAuth ? props.login
+            { props.isAuth 
+            ? <div>{props.login} <button onClick={props.logout}>Log out</button></div>
             : <NavLink to={'/login'}>Login</NavLink> }
           </div>
         </header>
