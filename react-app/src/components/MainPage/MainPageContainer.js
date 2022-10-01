@@ -11,7 +11,7 @@ class MainPageContainer extends React.Component {
         
         let userId = this.props.router.params.userId;
         if(!userId) {
-            userId = 2;
+            userId = this.props.authorizedUserId;
         }
         this.props.getUserProfile(userId);
             this.props.getStatus(userId);
@@ -26,7 +26,9 @@ class MainPageContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
     profile: state.mainPage.profile,
-    status: state.mainPage.status
+    status: state.mainPage.status,
+    authorizedUserId: state.auth.userId,
+    isAuth: state.auth.isAuth
 });
 
 const withRouter = (Component) => { // HOC
