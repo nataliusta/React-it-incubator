@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './FormControls.module.css';
+import classes from '../FormControls/FormControls.module.css';
 
 export const Element = Element => ({input, meta, ...props}) => { // rest operator
     
