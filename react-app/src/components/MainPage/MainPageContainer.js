@@ -12,14 +12,20 @@ class MainPageContainer extends React.Component {
         let userId = this.props.router.params.userId;
         if(!userId) {
             userId = this.props.authorizedUserId;
+            if (!userId) {
+                this.props.history.push('/login');
+            }
         }
         this.props.getUserProfile(userId);
-            this.props.getStatus(userId);
+        this.props.getStatus(userId);
     }
 
     render() {
         return (
-                <MainPage {...this.props} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus} />
+                <MainPage {...this.props} 
+                          profile={this.props.profile} 
+                          status={this.props.status} 
+                          updateStatus={this.props.updateStatus} />
         )
     }
 }
