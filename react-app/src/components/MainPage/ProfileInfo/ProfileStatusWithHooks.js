@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 //import classes from './ProfileInfo.module.css';
 
 const ProfileStatusWithHooks = (props) => {
+    
+    let [editMode, setEditMode] = useState(true);
+
     return (
         <div>
-            { !this.state.editMode &&
+            { !editMode &&
                 <div>
-                    <span onDoubleClick={ this.activateEditMode }>{this.props.status || 'Enter something'}</span>
+                    <span>{props.status || 'Enter something'}</span>
                 </div>
             }
-            { this.state.editMode &&
+            { editMode &&
                 <div>
-                    <input onChange={this.onStatusChange} autoFocus={true} onBlur={ this.deactivateEditMode } 
-                            value={this.state.status} />
+                    <input autoFocus={true} />
                 </div>
             }
         </div>
