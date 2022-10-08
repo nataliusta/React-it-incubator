@@ -3,13 +3,17 @@ import React, {useState} from 'react';
 
 const ProfileStatusWithHooks = (props) => {
     
-    let [editMode, setEditMode] = useState(true);
+    let [editMode, setEditMode] = useState(false);
+
+    const activateEditMode = () => {
+        setEditMode(true);
+    }
 
     return (
         <div>
             { !editMode &&
                 <div>
-                    <span>{props.status || 'Enter something'}</span>
+                    <span onDoubleClick={activateEditMode}>{props.status || 'Enter something'}</span>
                 </div>
             }
             { editMode &&
