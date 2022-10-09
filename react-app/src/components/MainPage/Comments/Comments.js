@@ -7,24 +7,30 @@ import { Element } from '../../FormControls/FormControls';
 
 const maxLength10 = maxLengthCreator(10);
 
-const Comments = (props) => {
-  
-  let commentElements = props.commentsData.map ( comment => <CommentItem comment={comment.comment} key={comment.id} /> );
+class Comments extends React.Component {
 
-  let AddNewComment = (values) => {
-    props.addComment(values.newCommentBody);
-  };
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps != this.props;
+  }
 
-    return (
-        <div className={classes.mainComments}>
-            <div className={classes.comments}>
-                <ul className={classes.commentsList}>
-                    <div>{commentElements}</div>
-                </ul>
-            </div>
-            <AddCommentBodyFormRedux onSubmit={AddNewComment} />
-        </div>
-    )
+  render () {
+    let commentElements = this.props.commentsData.map ( comment => <CommentItem comment={comment.comment} key={comment.id} /> );
+
+    let AddNewComment = (values) => {
+      this.props.addComment(values.newCommentBody);
+    };
+
+      return (
+          <div className={classes.mainComments}>
+              <div className={classes.comments}>
+                  <ul className={classes.commentsList}>
+                      <div>{commentElements}</div>
+                  </ul>
+              </div>
+              <AddCommentBodyFormRedux onSubmit={AddNewComment} />
+          </div>
+      )
+  }
 }
 
 const Textarea = Element("textarea");

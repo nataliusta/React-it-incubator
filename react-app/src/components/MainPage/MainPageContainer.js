@@ -8,7 +8,6 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 class MainPageContainer extends React.Component {
     
     componentDidMount() {
-        
         let userId = this.props.router.params.userId;
         if(!userId) {
             userId = this.props.authorizedUserId;
