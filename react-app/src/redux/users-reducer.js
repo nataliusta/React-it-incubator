@@ -19,9 +19,7 @@ let initialState = {
 };
 
 const usersReducer = (state = initialState, action) => {
-
     switch(action.type) {
-        case 'FAKE': return {...state, fake: state.fake + 1}
         case FOLLOW:
             return {
                 ...state,
@@ -90,41 +88,48 @@ export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFe
 export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId})
 
 export const requestUsers = (page, pageSize) => { // a pure thunk function for setUsers that dispatches actions
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true));
         dispatch(setCurrentPage(page));
-        usersAPI.getUsers(page, pageSize)
-            .then(data => {
-                dispatch(toggleIsFetching(false));
-                dispatch(setUsers(data.items));
-                dispatch(setTotalUsersCount(data.totalCount));
-        });
+        let data = await usersAPI.getUsers(page, pageSize);
+        dispatch(toggleIsFetching(false));
+        dispatch(setUsers(data.items));
+        dispatch(setTotalUsersCount(data.totalCount));
     }
 }
 
+const followUnfollowFlow = async (dispatch, userId) => {
+    dispatch(toggleFollowingProgress(true, userId));
+        let response = await usersAPI.follow(userId);
+        if (response.data.resultCode === 0) {
+            dispatch(followSuccess(userId));
+        }
+        dispatch(toggleFollowingProgress(false, userId));
+}
+
 export const follow = (userId) => { // a thunk function for follow
-    return (dispatch) => {
+    return async (dispatch) => {
+        let apiMethod = usersAPI.follow.bind(usersAPI);
+
         dispatch(toggleFollowingProgress(true, userId));
-        usersAPI.follow(userId)
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(followSuccess(userId));
-                }
-                dispatch(toggleFollowingProgress(false, userId));
-            });
+        let response = await usersAPI.follow(userId);
+        if (response.data.resultCode === 0) {
+            dispatch(followSuccess(userId));
+        }
+        dispatch(toggleFollowingProgress(false, userId));
     }
 }
 
 export const unfollow = (userId) => { // a thunk function for unfollow
-    return (dispatch) => {
+    return async (dispatch) => {
+        let apiMethod = usersAPI.unfollow.bind(usersAPI);
+
         dispatch(toggleFollowingProgress(true, userId));
-        usersAPI.unfollow(userId)
-            .then(response => {
-                if (response.data.resultCode === 0) {
-                    dispatch(unfollowSuccess(userId)); 
-                }
-                dispatch(toggleFollowingProgress(false, userId));
-            });
+        let response = await usersAPI.unfollow(userId);
+        if (response.data.resultCode === 0) {
+            dispatch(unfollowSuccess(userId)); 
+        }
+        dispatch(toggleFollowingProgress(false, userId));
     }
 }
 
