@@ -1,9 +1,9 @@
 import React from "react";
-import classes from './Users.module.css';
+import classes from './Pagination.module.css';
 
-let Pagination = (props) => {
+let Pagination = ({totalUsersCount, pageSize, currentPage, onPageChanged}) => {
 
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+    let pagesCount = Math.ceil(totalUsersCount / pageSize);
 
     let pages = [];
         for (let i=1; i <= pagesCount; i++) {
@@ -12,8 +12,8 @@ let Pagination = (props) => {
 
     return <div>
             {pages.map(p => {
-                return <span className={props.currentPage === p && classes.selectedPage} 
-                onClick={(e) => {props.onPageChanged(p)}}>{p}</span>
+                return <span className={currentPage === p && classes.selectedPage} 
+                onClick={(e) => {onPageChanged(p)}}>{p}</span>
             })}
         </div>
 }
