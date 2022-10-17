@@ -9,9 +9,6 @@ const maxLength10 = maxLengthCreator(10);
 
 const Comments = React.memo(props => { // HOC f
 
-  /*shouldComponentUpdate(nextProps, nextState) {
-    return nextProps != this.props || nextState != this.state;
-  }*/
     console.log('Render');
     let commentElements = props.commentsData.map ( comment => <CommentItem comment={comment.comment} key={comment.id} /> );
 

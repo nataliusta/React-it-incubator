@@ -1,4 +1,3 @@
-//import React from 'react';
 import Forum from './Forum.js';
 import {addMessageActionCreator} from '../../redux/forum-reducer';
 import {connect} from 'react-redux';

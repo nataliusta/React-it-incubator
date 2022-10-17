@@ -13,7 +13,6 @@ import Login from './components/Login/Login';
 import { initializeApp } from './redux/app-reducer';
 import { connect } from 'react-redux';
 import Preloader from './components/Preloader/Preloader';
-//import { useParams } from "react-router-dom";
 
 class App extends React.Component {
   componentDidMount() {
