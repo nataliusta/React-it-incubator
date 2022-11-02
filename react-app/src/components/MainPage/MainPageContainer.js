@@ -6,8 +6,8 @@ import { getUserProfile, getStatus, updateStatus } from '../../redux/main-reduce
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 class MainPageContainer extends React.Component {
-    
-    componentDidMount() {
+
+    refreshProfile() {
         let userId = this.props.router.params.userId;
         if(!userId) {
             userId = this.props.authorizedUserId;
@@ -18,6 +18,17 @@ class MainPageContainer extends React.Component {
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
     }
+    
+    componentDidMount() {
+        this.refreshProfile();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.router.params.userId != prevProps.router.params.userId) {
+             this.refreshProfile();
+        }
+    }
+
 
     render() {
         return (
