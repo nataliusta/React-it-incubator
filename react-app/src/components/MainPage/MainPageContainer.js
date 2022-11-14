@@ -33,9 +33,11 @@ class MainPageContainer extends React.Component {
     render() {
         return (
                 <MainPage {...this.props} 
+                          isOwner={!this.props.router.params.userId}
                           profile={this.props.profile} 
                           status={this.props.status} 
-                          updateStatus={this.props.updateStatus} />
+                          updateStatus={this.props.updateStatus} 
+                          savePhoto={this.props.savePhoto} />
         )
     }
 }
