@@ -67,6 +67,6 @@ const withRouter = (Component) => { // HOC
 }
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus}),
+    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus, savePhoto}),
     withRouter
 )(MainPageContainer);
