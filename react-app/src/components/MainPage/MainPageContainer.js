@@ -9,7 +9,6 @@ import { getUserProfile,
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 class MainPageContainer extends React.Component {
-
     refreshProfile() { 
         let userId = this.props.router.params.userId;
         if(!userId) {
@@ -59,17 +58,19 @@ const withRouter = (Component) => { // HOC
         let navigate = useNavigate();
         let params = useParams();
         return (
-            <Component
-                {...props}
-                router={{ location, navigate, params }}
-            />
+            <Component {...props} router={{ location, navigate, params }} />
         );
-    }
+    };
 
     return ComponentWithRouterProp;
 }
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus, savePhoto}),
+    connect(mapStateToProps, {
+        getUserProfile,
+        getStatus,
+        updateStatus,
+        savePhoto
+    }),
     withRouter
 )(MainPageContainer);
