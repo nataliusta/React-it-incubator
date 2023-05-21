@@ -1,13 +1,16 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 import MainPage from './MainPage';
-import { getUserProfile, getStatus, updateStatus } from '../../redux/main-reducer';
+import { getUserProfile,
+         getStatus, 
+         updateStatus,
+         savePhoto } from '../../redux/main-reducer';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 class MainPageContainer extends React.Component {
 
-    refreshProfile() {
+    refreshProfile() { 
         let userId = this.props.router.params.userId;
         if(!userId) {
             userId = this.props.authorizedUserId;
